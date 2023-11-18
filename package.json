@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.16.2",
+    "@mui/icons-material": "^5.14.18",
+    "@mui/material": "^5.14.18",
     "@react-jvectormap/core": "^1.0.4",
     "@react-jvectormap/unitedstates": "^1.0.1",
     "@types/node": "20.4.8",
@@ -26,6 +28,7 @@
     "react": "18.2.0",
     "react-apexcharts": "^1.4.1",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.48.2",
     "react-jvectormap": "^0.0.16",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6",
