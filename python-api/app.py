@@ -34,6 +34,8 @@ def hello_world():
     lat= result['location']['lat']
     lon= result['location']['lng']
 
+    print(lat, lon)
+
     url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
     params = {
         'keyword': 'sustainable veggie',
@@ -120,6 +122,7 @@ def hello_world():
         # There was an error with the request
         print(f"Error: {response.status_code}, {response.text}")
 
+    print(data)
     print(len(data["results"]))
 
     address= data['results'][0]['vicinity']
