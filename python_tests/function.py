@@ -15,7 +15,7 @@ def calculate_emission (miles_traveled, mode):
         # Calculate CO2 emissions
         co2_emissions_kg = fuel_used_liters * emission_factor_gasoline
 
-        return co2_emissions_kg
+        return int(co2_emissions_kg)
     elif(mode=='transit'):
         miles_to_kilometers = 1.60934
         gallons_to_liters = 3.78541
@@ -27,7 +27,7 @@ def calculate_emission (miles_traveled, mode):
         # Calculate CO2 emissions
         co2_emissions_kg = fuel_used_liters * emission_factor_diesel
 
-        return co2_emissions_kg
+        return int(co2_emissions_kg)
     elif(mode=='walking'):
         avg_calories_per_mile = 75
 
@@ -41,7 +41,7 @@ def calculate_emission (miles_traveled, mode):
         # Calculate CO2 emissions
         co2_emissions_kg = (total_calories_burned / 1000) * carbon_footprint_per_1000_calories
 
-        return co2_emissions_kg
+        return int(co2_emissions_kg)
     else: #biking
         avg_calories_per_mile = 45  # This is an average and can vary
 
@@ -54,4 +54,4 @@ def calculate_emission (miles_traveled, mode):
         # Calculate CO2 emissions
         co2_emissions_kg = (total_calories_burned / 1000) * carbon_footprint_per_1000_calories
 
-        return co2_emissions_kg
+        return int(co2_emissions_kg)
