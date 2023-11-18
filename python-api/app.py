@@ -11,28 +11,31 @@ def hello_world():
 @app.get("/restaurants")
 def hello_world():
     api_key= "AIzaSyAHbJM1jo4wyx5whpMNtfnpsHT30MjJ0JA"
-    url = "https://www.googleapis.com/geolocation/v1/geolocate?key="+api_key
-    headers = {
-        "Content-Type": "application/json"
-    }
-    data = {
-        "homeMobileCountryCode": 310,
-        "homeMobileNetworkCode": 410,
-        "radioType": "gsm",
-        "carrier": "Vodafone",
-        "considerIp": True
-    }
+    # url = "https://www.googleapis.com/geolocation/v1/geolocate?key="+api_key
+    # headers = {
+    #     "Content-Type": "application/json"
+    # }
+    # data = {
+    #     "homeMobileCountryCode": 310,
+    #     "homeMobileNetworkCode": 410,
+    #     "radioType": "gsm",
+    #     "carrier": "Vodafone",
+    #     "considerIp": True
+    # }
 
-    response = requests.post(url, headers=headers, json=data)
+    # response = requests.post(url, headers=headers, json=data)
 
-    # Check if the request was successful (status code 200)
-    if response.ok:
-        result = response.json()
-    else:
-        print(f"Error: {response.status_code}, {response.text}")
+    # # Check if the request was successful (status code 200)
+    # if response.ok:
+    #     result = response.json()
+    # else:
+    #     print(f"Error: {response.status_code}, {response.text}")
 
-    lat= result['location']['lat']
-    lon= result['location']['lng']
+    # lat= result['location']['lat']
+    # lon= result['location']['lng']
+
+    lat= 42.3509568
+    lon= -71.1107292
 
     url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
     params = {
