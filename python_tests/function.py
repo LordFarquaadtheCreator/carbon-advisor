@@ -28,7 +28,7 @@ def calculate_emission (miles_traveled, mode):
         co2_emissions_kg = fuel_used_liters * emission_factor_diesel
 
         return int(co2_emissions_kg)
-    elif(mode=='walking'):
+    elif(mode=='walk'):
         avg_calories_per_mile = 75
 
         # Carbon footprint per 1,000 calories (in kg CO2)
