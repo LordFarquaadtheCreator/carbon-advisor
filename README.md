@@ -1,181 +1,88 @@
-# [Light Bootstrap Dashboard React](https://demos.creative-tim.com/light-bootstrap-dashboard-react/#/?ref=lbdr-readme) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?url=https%3A%2F%2Fcreativetimofficial.github.io%2Flight-bootstrap-dashboard-react&text=Light%20Bootstrap%20Dashboard%20React%20-%20Free%20Bootstrap%20Admin%20Template&original_referer=https%3A%2F%2Fdemos.creative-tim.com%2Flight-bootstrap-dashboard-react%2F&via=creativetim&hashtags=react%2Cbootstrap%2Creact-bootstrap%2Ccreativetim%2Ccreative-tim)
+# TailAdmin Next.js - Free Next.js Tailwind Admin Dashboard Template
 
-![version](https://img.shields.io/badge/version-2.0.1-blue.svg) ![license](https://img.shields.io/badge/license-MIT-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/light-bootstrap-dashboard-react.svg?maxAge=2592000)]() [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/light-bootstrap-dashboard-react.svg?maxAge=2592000)]() [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/E4aHAQy)
+TailAdmin is a free and open-source admin dashboard template built on **Next.js and Tailwind CSS** providing developers with everything they need to create a feature-rich and data-driven: back-end, dashboard, or admin panel solution for any sort of web project.
 
-![Product Gif](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/light-bootstrap-dashboard-react/light-bootstrap-dashboard-react.gif)
+[![tailwind nextjs admin template](https://github.com/TailAdmin/free-nextjs-admin-dashboard/blob/main/tailadmin-nextjs.jpg)](https://nextjs-demo.tailadmin.com/)
 
-**[Light Bootstrap Dashboard React](https://demos.creative-tim.com/light-bootstrap-dashboard-react/#/?ref=lbdr-readme)** is an admin dashboard template designed to be beautiful and simple. It is built on top of [React Bootstrap](https://5c507d49471426000887a6a7--react-bootstrap.netlify.com/), using [Light Bootstrap Dashboard](https://www.creative-tim.com/product/light-bootstrap?ref=lbdr-readme) and it is fully responsive. It comes with a big collections of elements that will offer you multiple possibilities to create the app that best fits your needs. It can be used to create admin panels, project management systems, web applications backend, CMS or CRM.
+With TailAdmin Next.js, you get access to all the necessary dashboard UI components, elements, and pages required to build a high-quality and complete dashboard or admin panel. Whether you're building a dashboard or admin panel for a complex web application or a simple website. 
 
-The product represents a big suite of front-end developer tools that can help you jump start your project. We have created it thinking about things you actually need in a dashboard. Light Bootstrap Dashboard React contains multiple handpicked and optimized plugins. Everything is designed to fit with one another. As you will be able to see, the dashboard you can access on Creative Tim is a customization of this product.
+TailAdmin utilizes the powerful features of **Next.js 13** and common features of Next.js such as server-side rendering (SSR), static site generation (SSG), and seamless API route integration. Combined with the advancements of **React 18** and the robustness of **TypeScript**, TailAdmin is the perfect solution to help get your project up and running quickly.
 
-It comes with 6 filter colors for the sidebar (`black`, `azure`,`green`,`orange`,`red`,`purple`) and an option to have a background image.
+### [✨ Visit Website](https://tailadmin.com/)
+### [🚀 PRO Demo](https://nextjs-demo.tailadmin.com/)
+### [🚀 FREE Demo](https://nextjs-free-demo.tailadmin.com/)
 
-## Table of Contents
+### TailAdmin Next.js PRO vs TailAdmin Next.js FREE Comparison 📊
 
-- [Versions](#versions)
-- [Demo](#demo)
-- [Quick Start](#quick-start)
-- [Documentation](#documentation)
-- [File Structure](#file-structure)
-- [Browser Support](#browser-support)
-- [Resources](#resources)
-- [Reporting Issues](#reporting-issues)
-- [Technical Support or Questions](#technical-support-or-questions)
-- [Licensing](#licensing)
-- [Useful Links](#useful-links)
+#### [TailAdmin Next.js PRO](https://nextjs-demo.tailadmin.com/)
+- 4 Unique Dashboards: Analytics, Ecommerce, Marketing, and CRM (More will be added)
+- 120+ Dashboard UI Components
+- 200+ Total UI Elements
+- 45+ HTML Files
+- All Essential Elements and Files
+- Full Figma Design Source - As Shown on Demo
+___
 
-## Versions
+#### [TailAdmin Next.js FREE](https://free-nextjs-demo.tailadmin.com/)
+- 1 Unique Dashboard
+- 30+ Dashboard UI Components
+- 50+ Total UI Elements 
+- 10+ HTML Files
+- TypeScript Support
+- Basic UI Kit Elements and Files
+- Figma Design Source - Free Sample
+___
 
-[<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/html-logo.jpg" width="60" height="60" />](https://www.creative-tim.com/product/light-bootstrap-dashboard?ref=lbdr-readme)[<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/react-logo.jpg" width="60" height="60" />](https://www.creative-tim.com/product/light-bootstrap-dashboard-react?ref=lbdr-readme)[<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/vue-logo.jpg" width="60" height="60" />](https://www.creative-tim.com/product/vue-light-bootstrap-dashboard?ref=lbdr-readme)[<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/angular-logo.jpg" width="60" height="60" />](https://www.creative-tim.com/product/light-bootstrap-dashboard-angular2?ref=lbdr-readme)
+### [⬇️ Download Now](https://tailadmin.com/download)
 
-| HTML                                                                                                                                                                                                                                                   | React                                                                                                                                                                                                                                                                     | Vue                                                                                                                                                                                                                                                               | Angular                                                                                                                                                                                                                                                                            |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![Light Bootstrap Dashboard HTML](https://github.com/creativetimofficial/public-assets/blob/master/light-bootstrap-dashboard/light-bootstrap-dashboard.jpg?raw=true)](https://www.creative-tim.com/product/light-bootstrap-dashboard?ref=lbdr-readme) | [![Light Bootstrap Dashboard React](https://github.com/creativetimofficial/public-assets/blob/master/light-bootstrap-dashboard-react/light-bootstrap-dashboard-react.jpg?raw=true)](https://www.creative-tim.com/product/light-bootstrap-dashboard-react?ref=lbdr-readme) | [![Vue Light Bootstrap Dashboard](https://github.com/creativetimofficial/public-assets/blob/master/vue-light-bootstrap-dashboard/vue-light-bootstrap-dashboard.jpg?raw=true)](https://www.creative-tim.com/product/vue-light-bootstrap-dashboard?ref=lbdr-readme) | [![Light Bootstrap Dashboard Angular](https://github.com/creativetimofficial/public-assets/blob/master/light-bootstrap-dashboard-angular/light-bootstrap-dashboard-angular.jpg?raw=true)](https://www.creative-tim.com/product/light-bootstrap-dashboard-angular2?ref=lbdr-readme) |
+### [⚡ Get PRO Version](https://tailadmin.com/pricing)
 
-## Demo
+### [📄 Documentation/Installation](https://tailadmin.com/docs)
 
-| Dashboard                                                                                                                                                                                                                                        | User Profile                                                                                                                                                                                                                                       | Tables                                                                                                                                                                                                                                           | Maps                                                                                                                                                                                                                                                             |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![Start page](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/light-bootstrap-dashboard-react/dashboard-page.png)](https://demos.creative-tim.com/light-bootstrap-dashboard-react/#/admin/dashboard?ref=lbdr-readme) | [![User profile page](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/light-bootstrap-dashboard-react/user-page.png)](https://demos.creative-tim.com/light-bootstrap-dashboard-react/#/admin/user-page?ref=lbdr-readme) | [![Tables page ](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/light-bootstrap-dashboard-react/tables-page.png)](https://demos.creative-tim.com/light-bootstrap-dashboard-react/#/admin/table-list?ref=lbdr-readme) | [![Notifications Page](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/light-bootstrap-dashboard-react/notifications-page.png)](https://demos.creative-tim.com/light-bootstrap-dashboard-react/#/admin/notifications?ref=lbdr-readme) |
+### [🖌️ TailAdmin Figma Free Sample](https://www.figma.com/community/file/1214477970819985778)
 
-[View More](https://demos.creative-tim.com/light-bootstrap-dashboard-react/#/admin/dashboard?ref=lbdr-readme).
+### [👉 TailAdmin HTML Version](https://github.com/TailAdmin/tailadmin-free-tailwind-dashboard-template)
 
-## Quick start
 
-Quick start options:
+## Installation
 
-- Clone the repo: `git clone https://github.com/creativetimofficial/light-bootstrap-dashboard-react.git`.
-- [Download from Github](https://github.com/creativetimofficial/light-bootstrap-dashboard-react/archive/master.zip).
-- [Download from Creative Tim](https://www.creative-tim.com/product/light-bootstrap-dashboard-react?ref=lbdr-readme).
+Here are the steps you need to follow to install the dependencies.
 
-## Documentation
+1. Download and extract the template from Next.js Templates.
 
-The documentation for the Light Bootstrap Dashboard React is hosted at our [website](https://demos.creative-tim.com/light-bootstrap-dashboard-react/#/documentation/?ref=lbdr-readme).
-
-## File Structure
-
-Within the download you'll find the following directories and files:
+2. After that **cd** into the template directory then run this command to install all the dependencies
 
 ```
-light-bootstrap-dashboard-react
-.
-├── CHANGELOG.md
-├── ISSUE_TEMPLATE.md
-├── LICENSE.md
-├── README.md
-├── gulpfile.js
-├── jsconfig.json
-├── package.json
-├── Documentation
-│   ├── css
-│   │   ├── demo.css
-│   │   ├── documentation.css
-│   │   └── light-bootstrap-dashboard.css
-│   ├── img
-│   └── tutorial-components.html
-├── public
-│   ├── favicon.ico
-│   ├── index.html
-│   └── manifest.json
-└── src
-    ├── index.js
-    ├── logo.svg
-    ├── routes.js
-    ├── assets
-    │   ├── css
-    │   │   ├── animate.min.css
-    │   │   ├── demo.css
-    │   │   ├── light-bootstrap-dashboard-react.css
-    │   │   ├── light-bootstrap-dashboard-react.css.map
-    │   │   └── light-bootstrap-dashboard-react.min.css
-    │   ├── fonts
-    │   │   ├── nucleo-icons.eot
-    │   │   ├── nucleo-icons.svg
-    │   │   ├── nucleo-icons.ttf
-    │   │   ├── nucleo-icons.woff
-    │   │   └── nucleo-icons.woff2
-    │   ├── img
-    │   │   └── faces
-    │   └── scss
-    │       ├── lbd
-    │       │   ├── mixins
-    │       │   └── plugins
-    │       ├── lbdr
-    │       │   ├── plugins
-    │       │   └── react-differences.scss
-    │       └── light-bootstrap-dashboard-react.scss
-    ├── layouts
-    │   └── Admin.js
-    ├── components
-    │   ├── FixedPlugin
-    │   │   └── FixedPlugin.js
-    │   ├── Footer
-    │   │   └── Footer.js
-    │   ├── Navbars
-    │   │   └── AdminNavbar.js
-    │   └── Sidebar
-    │       └── Sidebar.js
-    └── views
-        ├── Dashboard.js
-        ├── Icons.js
-        ├── Maps.js
-        ├── Notifications.js
-        ├── TableList.js
-        ├── Typography.js
-        ├── Upgrade.js
-        └── UserProfile.js
+npm install
+```
+or
+
+```
+yarn install
 ```
 
-## Browser Support
+3. Now run this command to start the developement server
 
-At present, we officially aim to support the last two versions of the following browsers:
+```
+npm run dev
+```
 
-<img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/chrome.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/firefox.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/edge.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/safari.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/opera.png" width="64" height="64">
+or 
 
-## Resources
+```
+yarn dev
+```
 
-- Demo: https://demos.creative-tim.com/light-bootstrap-dashboard-react/#/admin/dashboard?ref=lbdr-readme
-- Download Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-react?ref=lbdr-readme
-- Documentation: https://demos.creative-tim.com/light-bootstrap-dashboard-react/#/documentation/tutorial?ref=lbdr-readme
-- License Agreement: https://www.creative-tim.com/license?ref=lbdr-readme
-- Support: https://www.creative-tim.com/contact-us?ref=lbdr-readme
-- Issues: [Github Issues Page](https://github.com/creativetimofficial/light-bootstrap-dashboard-react/issues)
 
-## Reporting Issues
+## Free Admin Dashboard Template for Next.js Built-with Tailwind CSS, React 18 and TypeScript
+TailAdmin Next.js is a free dashboard template, which uses Tailwind CSS, is a great starting point for dashboard UI. This template uses the Next.js JavaScript framework and the easy-to-use Tailwind CSS framework. The Tailwind CSS and Next.js Dashboard Template comes with ready-made components like navigation menus, charts, tables, and forms. These components can be easily adjusted and added to any Next.js web application.
 
-We use GitHub Issues as the official bug tracker for the Light Bootstrap Dashboard React. Here are some advices for our users that want to report an issue:
+TailAdmin for Next.js provides all essential Next.js + Tailwind CSS UI components that can be copied and pasted directly into your dashboard projects. The range of components includes charts, graphs, navbars, tabs, buttons, cards, tables, profiles, forms, modals, app pages, calendars, web app example templates, and more, all coded for Next.js React and styled using Tailwind CSS.
 
-1. Make sure that you are using the latest version of the Light Bootstrap Dashboard React. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/?ref=lbdr-readme).
-2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
-3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
+If you're on the hunt for a top-quality Next.js-Tailwind Dashboard, Admin Panel Template, or UI Kit, TailAdmin is the perfect choice for you!
 
-## Technical Support or Questions
+### 📄 License
+TailAdmin Next.js Free is 100% free and open-source; feel free to use it with your personal and commercial projects.
 
-If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us?ref=lbdr-readme) instead of opening an issue.
-
-## Licensing
-
-- Copyright 2022 Creative Tim (https://www.creative-tim.com?ref=lbdr-readme)
-- Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard-react/blob/master/LICENSE.md)
-
-## Useful Links
-
-More products from Creative Tim: <https://www.creative-tim.com/products?ref=lbdr-readme>
-
-Tutorials: <https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w>
-
-Freebies: <https://www.creative-tim.com/products?ref=lbdr-readme>
-
-Affiliate Program (earn money): <https://www.creative-tim.com/affiliates/new?ref=lbdr-readme>
-
-Social Media:
-
-Twitter: <https://twitter.com/CreativeTim>
-
-Facebook: <https://www.facebook.com/CreativeTim>
-
-Dribbble: <https://dribbble.com/creativetim>
-
-Google+: <https://plus.google.com/+CreativetimPage>
-
-Instagram: <https://instagram.com/creativetimofficial>
+### 💜 Support
+If you like the template, please star this repository to inspire the team to create more stuff like this and reach more users like you!
