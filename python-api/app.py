@@ -90,28 +90,28 @@ async def hello_world():
 @app.get("/restaurants_fixedlocation")
 def hello_world():
     api_key= "AIzaSyAHbJM1jo4wyx5whpMNtfnpsHT30MjJ0JA"
-    # url = "https://www.googleapis.com/geolocation/v1/geolocate?key="+api_key
-    # headers = {
-    #     "Content-Type": "application/json"
-    # }
-    # data = {
-    #     "homeMobileCountryCode": 310,
-    #     "homeMobileNetworkCode": 410,
-    #     "radioType": "gsm",
-    #     "carrier": "Vodafone",
-    #     "considerIp": True
-    # }
+    url = "https://www.googleapis.com/geolocation/v1/geolocate?key="+api_key
+    headers = {
+        "Content-Type": "application/json"
+    }
+    data = {
+        "homeMobileCountryCode": 310,
+        "homeMobileNetworkCode": 410,
+        "radioType": "gsm",
+        "carrier": "Vodafone",
+        "considerIp": True
+    }
 
-    # response = requests.post(url, headers=headers, json=data)
+    response = requests.post(url, headers=headers, json=data)
 
-    # # Check if the request was successful (status code 200)
-    # if response.ok:
-    #     result = response.json()
-    # else:
-    #     print(f"Error: {response.status_code}, {response.text}")
+    # Check if the request was successful (status code 200)
+    if response.ok:
+        result = response.json()
+    else:
+        print(f"Error: {response.status_code}, {response.text}")
 
-    # lat= result['location']['lat']
-    # lon= result['location']['lng']
+    lat= result['location']['lat']
+    lon= result['location']['lng']
 
     lat= 42.3509568
     lon= -71.1107292
@@ -142,14 +142,15 @@ def hello_world():
     address= data['results'][0]['vicinity']
     name= data['results'][0]['name']
 
+    result= name + " " + address
+
     complete= address + name
     swap = complete.replace(" ", "+")
     main_map= f"https://www.google.com/maps/embed/v1/place?key=AIzaSyAHbJM1jo4wyx5whpMNtfnpsHT30MjJ0JA&q={swap}"
     
-    names= []
-    addresses= []
-    for i in range(len(data["results"])):
-        names.append(data["results"][i]["name"])
-        addresses.append(data["results"][i]["vicinity"])
+    results= []
 
-    return {'names': names, 'addresses': addresses, 'main_map': main_map}
+    for i in range(len(data["results"])):
+        results.append(data["results"][i]["name"] + " " + data["results"][i]["vicinity"])
+
+    return {'names': results, 'main_map': main_map}
