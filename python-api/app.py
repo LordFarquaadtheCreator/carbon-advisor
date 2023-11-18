@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 import requests
-
+import os
+GOOGLEAPIKEY = os.environ.get('GOOGLEAPIKEY')
 
 app = FastAPI()
 
@@ -10,7 +11,7 @@ def hello_world():
 
 @app.get("/restaurants")
 def hello_world():
-    api_key= "AIzaSyAHbJM1jo4wyx5whpMNtfnpsHT30MjJ0JA"
+    api_key= GOOGLEAPIKEY
     url = "https://www.googleapis.com/geolocation/v1/geolocate?key="+api_key
     headers = {
         "Content-Type": "application/json"
