@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import dynamic from "next/dynamic";
@@ -6,9 +8,9 @@ import { ApexOptions } from "apexcharts";
 
 // Defining the type for form inputs
 type FormData = {
-  firstName: string;
-  category: string;
-  aboutYou: string;
+  origin: string;
+  destination: string;
+  mode: string;
 };
 
 const options: ApexOptions = {

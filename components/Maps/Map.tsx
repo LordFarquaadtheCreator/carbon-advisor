@@ -2,7 +2,7 @@
 import React from "react";
 import { VectorMap } from "@react-jvectormap/core";
 import { usAea } from "@react-jvectormap/unitedstates";
-import 'dotenv/config';
+// import 'dotenv/config';
 
 const Map = () => {
   return (
