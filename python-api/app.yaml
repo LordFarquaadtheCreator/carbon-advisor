@@ -1,2 +1,10 @@
 runtime: python39
 entrypoint: gunicorn -w 4 -k uvicorn.workers.UvicornWorker app:app
+
+handlers:
+- url: /.*
+  script: auto
+  http_headers:
+    Access-Control-Allow-Origin: "*"
+    Access-Control-Allow-Methods: "GET, POST, OPTIONS"
+    Access-Control-Allow-Headers: "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
