@@ -27,7 +27,7 @@ export default function RootLayout({
         <div className="dark:bg-boxdark-2 dark:text-bodydark">
           {loading ? (
             <Loader />
-          ) : (
+          ) : ( 
             <div className="flex h-screen overflow-hidden">
               {/* <!-- ===== Sidebar Start ===== --> */}
               <Sidebar
