@@ -6,7 +6,7 @@ import 'dotenv/config';
 
 const Map = () => {
   return (
-  <div className="col-span-12 rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-7">
+  <div className="col-span-12 rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-8">
     <iframe src="https://storage.googleapis.com/maps-solutions-ma64agra9q/commutes/bynr/commutes.html"
       width="100%" height="100%"
       // style="border:0;"
