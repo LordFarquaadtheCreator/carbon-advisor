@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 import requests
 import os
+from dotenv import load_dotenv
+load_dotenv()  
 GOOGLEAPIKEY = os.environ.get('GOOGLEAPIKEY')
 
 app = FastAPI()
