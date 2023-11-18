@@ -125,4 +125,4 @@ async def hello_world(origin: str, destination: str, mode: str, alternatives: bo
         elif travel_mode == "Train":
             carbon_emissions += distance*15
 
-    return {'carbon_emissions': round(carbon_emissions)}
+    return round(carbon_emissions)
