@@ -1,15 +1,12 @@
 from fastapi import FastAPI
 import requests
 import os
-from dotenv import load_dotenv
-load_dotenv()  
-GOOGLEAPIKEY = os.environ.get('GOOGLEAPIKEY')
 
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-# Allow all origins, methods, and headers for demonstration purposes
+#Allow all origins, methods, and headers for demonstration purposes
 origins = ["*"]
 
 # Setup CORS middleware
@@ -22,12 +19,12 @@ app.add_middleware(
 )
 
 @app.get("/")
-def hello_world():
+async def hello_world():
     return {'message':'Hello World'}
 
 @app.get("/restaurants")
-def hello_world():
-    api_key= GOOGLEAPIKEY
+async def hello_world():
+    api_key= "AIzaSyAHbJM1jo4wyx5whpMNtfnpsHT30MjJ0JA"
     url = "https://www.googleapis.com/geolocation/v1/geolocate?key="+api_key
     headers = {
         "Content-Type": "application/json"
