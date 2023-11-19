@@ -28,8 +28,8 @@ const RestaurantList = ({ endAddress }) => {
 
   return (
     <div>
-      <h1>🌏 Sustainable Restaurants Nearby</h1>
-      <ul className='list-disc'>
+      <h1 className="pt-5 text-2xl font-bold">🌏 Sustainable Restaurants Nearby 🌏</h1>
+      <ul className='list-decimal pl-5'>
         {restaurants.names?.map((restaurant) => (
           <li key={restaurant}>{restaurant}</li>
         ))}
