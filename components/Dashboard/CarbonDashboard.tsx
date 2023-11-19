@@ -184,6 +184,7 @@ export default function CarbonDashboard() {
                 return {
                   distance: step.distance?.text ?? NULL_STRING,
                   duration: step.duration?.text ?? NULL_STRING,
+                  // @ts-ignore
                   htmlInstructions: step["html_instructions"],  // there was an error in API, so we use key-syntax
                 };
               }) ?? []
