@@ -2,3 +2,6 @@ fastapi
 uvicorn
 gunicorn
 requests
+rasterio
+matplotlib
+pillow
