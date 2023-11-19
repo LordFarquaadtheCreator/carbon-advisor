@@ -9,19 +9,9 @@ export async function GET(
   { params }: { params: DirectionsFormData }
 ) {
   const { origin, destination, mode } = params;
-
-//   const response = await axios.get(
-//     `https://www.google.com/maps/embed/v1/directions`,
-//     {
-//       params: {
-//         origin,
-//         destination,
-//         mode,
-//         key: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
-//       },
-//     }
-//   );
-    const response = `https://www.google.com/maps/embed/v1/directions?key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}&origin=${origin}&destination=${destination}&mode=${mode.toLowerCase()}`
+  const response = `https://www.google.com/maps/embed/v1/directions?key=${
+    process.env.NEXT_PUBLIC_GOOGLE_API_KEY
+  }&origin=${origin}&destination=${destination}&mode=${mode.toLowerCase()}`;
 
   return new NextResponse(response);
 }

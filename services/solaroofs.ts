@@ -1,16 +1,8 @@
+import axios from "axios";
 import { create } from "zustand";
 
-const test = {
-  min_initial: "5615",
-  min_payback: 9,
-  min_savings: "7308",
-  max_initial: "60083",
-  max_payback: 5.75,
-  max_savings: "152442",
-};
-
 interface ISolaroofsFinancialData {
-    min_inital: string,
+    min_initial: string,
     min_payback: string,
     min_savings: string,
 
@@ -28,8 +20,12 @@ type SolaroofsStore = {
 } & Partial<SolaroofsDetails>;
 
 export const useSolaroofsStore = create<SolaroofsStore>((set) => ({
-    updateSolaroofsDetails: (endAddress) => {
-
+    updateSolaroofsDetails: async (endAddress) => {
+        const response = await axios.get(
+            `https://boston-hacks-405214.uc.r.appspot.com/panelsAnalysis?address=${endAddress}`
+        )
+        
+        set({solaroofsFinancialData: response.data as ISolaroofsFinancialData});
     }
 }))
 
