@@ -31,7 +31,7 @@ export default function DirectionList({
       <p className="text-lg">
         <b>To:</b> {endAddress}
       </p>
-      <ul className="list-decimal">
+      <ul className="list-decimal pl-5">
         {steps.map((step, i) => (
           <DirectionStep key={i} step={step} />
         ))}
@@ -45,6 +45,5 @@ interface DirectionStepProps {
 }
 
 function DirectionStep({ step }: DirectionStepProps) {
-    console.log(step);
-  return <ul><Interweave content={step.htmlInstructions} /></ul>;
+  return <li><Interweave content={step.htmlInstructions} /></li>;
 }

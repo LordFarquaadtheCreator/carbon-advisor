@@ -35,7 +35,6 @@ export default function CarbonDashboard() {
 
   return (
     <>
-      <button onClick={() => updateTravelDetails()}></button>
       {/* Data Cards */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
         {/* Miles Card */}
@@ -174,24 +173,25 @@ export default function CarbonDashboard() {
 
       {/* Direction Form */}
       {firstLeg && (
-        <DirectionList
-          startAddress={firstLeg.start_address}
-          endAddress={firstLeg.end_address}
-          totalDistance={firstLeg.distance?.text ?? NULL_STRING}
-          totalDuration={firstLeg.duration?.text ?? NULL_STRING}
-          steps={
-            firstLeg.steps.map((step) => {
-              console.log(step);
-              return {
-                distance: step.distance?.text ?? NULL_STRING,
-                duration: step.duration?.text ?? NULL_STRING,
-                htmlInstructions: step["html_instructions"],
-              };
-            }) ?? []
-          }
-        />
+        <div className="flex flex-row">
+          <DirectionList
+            startAddress={firstLeg.start_address}
+            endAddress={firstLeg.end_address}
+            totalDistance={firstLeg.distance?.text ?? NULL_STRING}
+            totalDuration={firstLeg.duration?.text ?? NULL_STRING}
+            steps={
+              firstLeg.steps.map((step) => {
+                return {
+                  distance: step.distance?.text ?? NULL_STRING,
+                  duration: step.duration?.text ?? NULL_STRING,
+                  htmlInstructions: step["html_instructions"],  // there was an error in API, so we use key-syntax
+                };
+              }) ?? []
+            }
+          />
+          <RestaurantList endAddress={firstLeg.end_address} />
+        </div>
       )}
-      <RestaurantList></RestaurantList>
     </>
   );
 }

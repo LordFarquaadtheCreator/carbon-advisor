@@ -4,6 +4,7 @@ import { Direction } from "readline";
 import { create } from "zustand";
 
 import "dotenv/config";
+import { useTravelStore } from "./travel";
 
 type GoogleDirectionsResult = google.maps.DirectionsResult;
 
@@ -40,7 +41,11 @@ export const useDirections = create<DirectionsStore>((set) => ({
   updateDirections: async (formData) => {
     let resData = await getDirections(formData);
 
-    console.log(resData);
+    // also update travel state
+    if (resData) {
+      useTravelStore.getState().updateTravelDetails(resData);
+    }
+
     set({ directions: resData ?? null });
   },
 }));
