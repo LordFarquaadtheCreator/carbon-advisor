@@ -38,8 +38,9 @@ export default function CarbonDashboard() {
   return (
     <>
       <button onClick={() => updateTravelDetails()}></button>
-      {/**  */}
+      {/* Data Cards */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
+        {/* Miles Card */}
         <CardDataStats title="miles" total={`${distanceMiles ?? NULL_STRING}`}>
           {travelMethod === TravelMethod.CAR ? (
             <svg
@@ -125,6 +126,7 @@ export default function CarbonDashboard() {
           )}
         </CardDataStats>
         {/* !!! WORK ON CONVERTING METRIC TONS TO A FAMILAR UNIT */}
+        {/* Metric Tons Card */}
         <CardDataStats
           title="metric tons"
           total={`${carbonEmittedMt ?? NULL_STRING}`}
@@ -143,6 +145,7 @@ export default function CarbonDashboard() {
             />
           </svg>
         </CardDataStats>
+        {/* Minutes Card */}
         <CardDataStats
           title="mins"
           total={`${timeEstimatedMinutes ?? NULL_STRING}`}
@@ -162,16 +165,15 @@ export default function CarbonDashboard() {
           </svg>
         </CardDataStats>
       </div>
+
+      {/* Direction Web View */}
       <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
-        {directions ? (
-          <GoogleMapDisplay directions={directions} />
-        ) : (
-          <p>Enter in your directions!</p>
-        )}
         <DirectionsInputForm
           onSubmit={(formData) => updateDirections(formData)}
         />
       </div>
+
+      {/* Direction Form */}
       {firstLeg && (
         <DirectionList
           startAddress={firstLeg.start_address}
