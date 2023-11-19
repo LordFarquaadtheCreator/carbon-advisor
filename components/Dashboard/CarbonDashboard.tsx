@@ -1,6 +1,6 @@
 "use client";
 // import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
-
+import './styles.css';
 import React, { use } from "react";
 import ChartOne from "../Charts/ChartOne";
 import ChartThree from "../Charts/ChartThree";
@@ -35,7 +35,6 @@ export default function CarbonDashboard() {
 
   return (
     <>
-      <button onClick={() => updateTravelDetails()}></button>
       {/* Data Cards */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
         {/* Miles Card */}
@@ -166,32 +165,39 @@ export default function CarbonDashboard() {
 
       {/* Direction Web View */}
       <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
-        { firstLeg?.end_address ? <RestaurantMap query={firstLeg.end_address} /> : <div>Loading</div>}
-        <DirectionsInputForm
-          onSubmit={(formData) => updateDirections(formData)}
-        />
+        <div className="col-span-9">
+          {firstLeg?.end_address ? <RestaurantMap query={firstLeg.end_address} /> : <RestaurantMap query={'Boston University'} />}
+        </div>
+      <div className="col-span-3 justify-start">
+            <DirectionsInputForm onSubmit={(formData) => updateDirections(formData)} />
+        </div>
       </div>
 
       {/* Direction Form */}
       {firstLeg && (
-        <DirectionList
-          startAddress={firstLeg.start_address}
-          endAddress={firstLeg.end_address}
-          totalDistance={firstLeg.distance?.text ?? NULL_STRING}
-          totalDuration={firstLeg.duration?.text ?? NULL_STRING}
-          steps={
-            firstLeg.steps.map((step) => {
-              console.log(step);
-              return {
-                distance: step.distance?.text ?? NULL_STRING,
-                duration: step.duration?.text ?? NULL_STRING,
-                htmlInstructions: step["html_instructions"],
-              };
-            }) ?? []
-          }
-        />
+        <>
+        <div className="flex flex-row">
+          <DirectionList
+            startAddress={firstLeg.start_address}
+            endAddress={firstLeg.end_address}
+            totalDistance={firstLeg.distance?.text ?? NULL_STRING}
+            totalDuration={firstLeg.duration?.text ?? NULL_STRING}
+            steps={
+              firstLeg.steps.map((step) => {
+                return {
+                  distance: step.distance?.text ?? NULL_STRING,
+                  duration: step.duration?.text ?? NULL_STRING,
+                  // @ts-ignore
+                  htmlInstructions: step["html_instructions"],  // there was an error in API, so we use key-syntax
+                };
+              }) ?? []
+            }
+          />
+          <br/>
+          <RestaurantList endAddress={firstLeg.end_address} />
+        </div>
+        </>
       )}
-      <RestaurantList></RestaurantList>
     </>
   );
 }

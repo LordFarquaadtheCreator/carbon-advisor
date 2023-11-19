@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const RestaurantList = () => {
+const RestaurantList = ({ endAddress }) => {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -8,7 +8,7 @@ const RestaurantList = () => {
     const fetchData = async () => {
       try {
         const response = await fetch('https://boston-hacks-405214.uc.r.appspot.com/restaurants?' + new URLSearchParams ({
-          address: "George Sherman Union Boston"
+          address: endAddress
          }) );
         const data = await response.json();
         setRestaurants(data);
@@ -28,8 +28,8 @@ const RestaurantList = () => {
 
   return (
     <div>
-      <h1>Sustainable Restaurants Nearby 🌏</h1>
-      <ul>
+      <h1 className="pt-5 text-2xl font-bold">🌏 Sustainable Restaurants Nearby 🌏</h1>
+      <ul className='list-decimal pl-5'>
         {restaurants.names?.map((restaurant) => (
           <li key={restaurant}>{restaurant}</li>
         ))}

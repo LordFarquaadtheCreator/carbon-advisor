@@ -24,14 +24,14 @@ export default function DirectionList({
 }: DirectionListProps) {
   return (
     <div>
-      <h2 className="pt-5 text-2xl font-bold">🗺️ Directions</h2>
+      <h1 className="pt-5 text-2xl font-bold">🗺️ Directions 🗺️</h1>
       <p className="text-lg">
         <b>From:</b> {startAddress}
       </p>
       <p className="text-lg">
         <b>To:</b> {endAddress}
       </p>
-      <ul className="list-decimal">
+      <ul className="list-decimal pl-5">
         {steps.map((step, i) => (
           <DirectionStep key={i} step={step} />
         ))}
@@ -45,6 +45,5 @@ interface DirectionStepProps {
 }
 
 function DirectionStep({ step }: DirectionStepProps) {
-    console.log(step);
-  return <ul><Interweave content={step.htmlInstructions} /></ul>;
+  return <li><Interweave content={step.htmlInstructions} /></li>;
 }

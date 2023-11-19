@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import {calculateEmission} from '../carbon.mjs';
 
 export interface ICoordinate {
     lat: number,
@@ -15,29 +16,28 @@ export enum TravelMethod {
 
 type TravelDetails = {
     travelMethod: TravelMethod;
-    distanceMiles: number;
+    distanceMiles: string;
     carbonEmittedMt: number;
-    timeEstimatedMinutes: number;
+    timeEstimatedMinutes: string;
 }
 
 type TravelStore = {
-    updateTravelDetails: () => void;
+    updateTravelDetails: (directions: google.maps.DirectionsResult) => void;
 } & Partial<TravelDetails>;
 
-const TRAVEL_TEST: TravelDetails = {
-    travelMethod: TravelMethod.PLANE,
-    distanceMiles: 100,
-    carbonEmittedMt: 1000,
-    timeEstimatedMinutes: 60,
-}
+export async function getTravelDetails(directions: google.maps.DirectionsResult) {
+    const distanceMiles = directions.routes[0].legs[0].distance!.text;
+    const timeEstimatedMinutes = directions.routes[0].legs[0].duration!.text;
+    // console.log(directions.routes[0].legs[0].steps[0].travel_mode);
+    const carbonEmittedMt = calculateEmission(distanceMiles, directions.routes[0].legs[0].steps[0].travel_mode);
+    // MAYBE UPDATE TRAVEL METHOD? we will have to see
 
-export async function getTravelDetails() {
-    return TRAVEL_TEST;
+    return {distanceMiles, timeEstimatedMinutes, carbonEmittedMt} as TravelDetails;
 }
 
 export const useTravelStore = create<TravelStore>((set) => ({
-    updateTravelDetails: async () => {
-        const details = await getTravelDetails();
+    updateTravelDetails: async (directions) => {
+        const details = await getTravelDetails(directions);
         set({...details});
     }
 }))

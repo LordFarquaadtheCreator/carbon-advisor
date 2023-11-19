@@ -1,3 +1,12 @@
-.flex-grow {
-  flex-grow: 6; /* This will allow the div to take up more space compared to others */
+.left {
+  display: flex; /* This makes it a flex container */
+  justify-content: flex-start; /* This aligns children to the start (left in LTR languages) */
+}
+br {
+    display: inline-block; /* Makes the br able to hold padding and border */
+    margin: 5px 0; /* Optional: Adjusts vertical space around the line */
+    border-left: 2px solid black; /* Creates the vertical line */
+    height: 10px; /* Adjusts the height of the line */
+    width: 0; /* Ensures the line remains vertical */
+    padding: 0 10px; /* Adds padding on each side of the line */
 }

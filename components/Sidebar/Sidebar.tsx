@@ -64,13 +64,14 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     >
       {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
-        <Link href="/">
+        <Link href="/" className="flex flex-row items-center text-2xl text-white">
           <Image
-            width={176}
-            height={32}
-            src={"/images/logo/logo.svg"}
+            width={50}
+            height={50}
+            src={"/images/logo/icon.png"}
             alt="Logo"
           />
+          <p className="pl-3">sustainable.af</p>
         </Link>
 
         <button
@@ -104,7 +105,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             <Link
               href="/"
               className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                pathname.includes("/") && "bg-graydark dark:bg-meta-4"
+                pathname === "/" && "bg-graydark dark:bg-meta-4"
               }`}
             >
               <svg
@@ -123,7 +124,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               Dashboard
             </Link>
             <Link
-              href="/"
+              href="/routes"
               className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                 pathname.includes("/routes") && "bg-graydark dark:bg-meta-4"
               }`}
@@ -144,7 +145,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               Routes
             </Link>
             <Link
-              href="/"
+              href="/restraunts"
               className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                 pathname.includes("/restraunts") && "bg-graydark dark:bg-meta-4"
               }`}
@@ -164,12 +165,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </svg>
               Restraunts
             </Link>
-          </div>
-          <div className="grid gap-2">
             <Link
-              href="/"
+              href="/solaroofs"
               className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                pathname.includes("/profile") && "bg-graydark dark:bg-meta-4"
+                pathname.includes("/solaroofs") && "bg-graydark dark:bg-meta-4"
               }`}
             >
               <svg
@@ -185,12 +184,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   fill=""
                 />
               </svg>
-              My Profile
+                Solaroofs
             </Link>
             <Link
-              href="/"
+              href="/waste"
               className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                pathname.includes("/settings") && "bg-graydark dark:bg-meta-4"
+                pathname.includes("/waste") && "bg-graydark dark:bg-meta-4"
               }`}
             >
               <svg
@@ -206,7 +205,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   fill=""
                 />
               </svg>
-              Settings
+                Waste
             </Link>
           </div>
         </nav>
