@@ -23,13 +23,24 @@ export default function DirectionList({
 }: DirectionListProps) {
   return (
     <div>
-        <h2 className="pt-5 text-2xl font-bold">🗺️ Directions</h2>
-        <p>From: {startAddress}</p>
-        <p>To: {endAddress}</p>
+      <h2 className="pt-5 text-2xl font-bold">🗺️ Directions</h2>
+      <p className="text-lg">
+        <b>From:</b> {startAddress}
+      </p>
+      <p className="text-lg">
+        <b>To:</b> {endAddress}
+      </p>
+      {steps.map((step, i) => (
+        <DirectionStep key={i} step={step} />
+      ))}
     </div>
   );
 }
 
-function DirectionStep() {
+interface DirectionStepProps {
+  step: Step;
+}
+
+function DirectionStep({ step }: DirectionStepProps) {
   return <div>DirectionSteps</div>;
 }
