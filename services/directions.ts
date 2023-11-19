@@ -1,9 +1,9 @@
 import axios from "axios";
+import { NextResponse } from "next/server";
 import { Direction } from "readline";
 import { create } from "zustand";
-// import "dotenv/config";
-require('dotenv').config();
-  console.log('key:', process.env.GOOGLE_API_KEY);
+
+import "dotenv/config";
 
 type GoogleDirectionsResult = google.maps.DirectionsResult;
 
@@ -18,31 +18,18 @@ type DirectionsStore = {
   updateDirections: (formData: DirectionsFormData) => void;
 };
 
+const urlConverter = (val: string) => encodeURIComponent(val.toLowerCase().replace(/[^a-z0-9 _-]+/gi, '+'));
+
 async function getDirections(
   
   { origin, destination, mode }: DirectionsFormData
 ) {
   try {
-    console.log('key:', process.env.GOOGLE_API_KEY);
+    const result = await axios.get(
+        `/api/${urlConverter(origin)}/${urlConverter(destination)}/${mode}`
+    )
 
-    const response = await axios.get(
-      `https://maps.googleapis.com/maps/api/directions/json`,
-      {
-        params: {
-          origin,
-          destination,
-          mode,
-          alternatives: true,
-          key: process.env.GOOGLE_API_KEY
-        },
-        headers: {
-            "Access-Control-Allow-Origin": "*"
-        }
-      }
-    );
-
-
-    return response.data as GoogleDirectionsResult;
+    return result.data as GoogleDirectionsResult;
   } catch (error) {
     console.error("Error fetching directions:", error);
   }
@@ -51,8 +38,8 @@ async function getDirections(
 export const useDirections = create<DirectionsStore>((set) => ({
   directions: null,
   updateDirections: async (formData) => {
-    console.log("UPDATING");
-    const resData = await getDirections(formData);
+    let resData = await getDirections(formData);
+
     set({ directions: resData ?? null });
   },
 }));

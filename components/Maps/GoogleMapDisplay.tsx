@@ -69,16 +69,17 @@ const GoogleMapDisplay = ({ directions }: MapProps) => {
 
   return (
     <div className="col-span-12 rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-8">
-      {isLoaded ? (
+      {/* {isLoaded ? (
         <GoogleMap onLoad={onLoad} onUnmount={onUnmount}>
-          <DirectionsRenderer directions={directions} />
+          <DirectionsRenderer directions={directions} options={{directions}} />
         </GoogleMap>
-      ) : <p>REPLACE ME WITH LOADING SPINNER</p>}
+      ) : <p>REPLACE ME WITH LOADING SPINNER</p>} */}
       {/* <iframe src="https://storage.googleapis.com/maps-solutions-ma64agra9q/commutes/bynr/commutes.html"
       width="100%" height="100%"
       style={{border:"0"}}
       loading="lazy">
     </iframe> */}
+    <p>Place holder</p>
     </div>
     //   <div className="col-span-12 rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-7">
     //     <h4 className="mb-2 text-xl font-semibold text-black dark:text-white">
