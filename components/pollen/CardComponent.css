@@ -1,0 +1,36 @@
+.card {
+  background-color: #1a1a1a; /* Or any color you prefer */
+  color: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 250px; /* Set the width you need */
+}
+
+.card-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Add more styles for your icon here */
+}
+
+.card-content {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.card-data-placeholder {
+  font-size: 24px;
+  /* Style for the placeholder text */
+}
+
+.card-data-unit {
+  margin-top: 5px;
+  /* Style for the unit text */
+}
+
+.card-footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  /* Style for the footer text */
+}

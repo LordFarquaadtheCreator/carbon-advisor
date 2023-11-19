@@ -7,6 +7,7 @@ import ChartTwo from "../Charts/ChartTwo";
 import ChatCard from "../Chat/ChatCard";
 import TableOne from "../Tables/TableOne";
 import CardDataStats from "../CardDataStats";
+import CardComponent from "../pollen/pollen"
 
 // without this the component renders on server and throws an error
 import dynamic from "next/dynamic";
@@ -160,6 +161,8 @@ export default function CarbonDashboard() {
         </div>
         <ChatCard /> */}
       </div>
+            <CardComponent></CardComponent>
+
     </>
   );
 }
