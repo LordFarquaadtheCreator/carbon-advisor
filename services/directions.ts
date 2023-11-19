@@ -1,6 +1,5 @@
 import axios from "axios";
 import { NextResponse } from "next/server";
-import { Direction } from "readline";
 import { create } from "zustand";
 
 import "dotenv/config";
