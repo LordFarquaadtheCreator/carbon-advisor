@@ -34,6 +34,7 @@ Our technological symphony encompasses:
 **Backend:** Crafted with Python and deployed seamlessly with FastAPI on the powerful Google Cloud App Engine. A harmonious dance of technologies that ensures efficiency and reliability, accessible through React using fetch.
 
 **Frontend:**
+Using a mixture of typescript and javascript (and cors 💀) to make a responive and dynamic UI.
 
 ## 🏆 **Tracks and Triumphs**
 
@@ -52,19 +53,21 @@ Our commitment to sustainability extends to our domain—sustanaible.af, a testa
 ## 🚧 **Overcoming Challenges, Achieving Milestones**
 
 ### 🌌 **Challenges Faced**
-<!-- Elaborate on the challenges faced during the hackathon -->
+
+- **CORS Conundrum:** Navigating CORS hurdles, our mentor's guidance proved invaluable. Overcoming permissions issues, we seamlessly connected the backend and frontend, transforming challenges into triumphs.
+- **API 101:** Getting into knowing how API's worked, the paramerts, the return values and how to implement them in different frameworks
 
 ### 🏆 **Proud Accomplishments**
 In the face of challenges, we triumphed:
 
 - **Solar API Mastery:** Unraveling the complexities of Solar API, we delved deep to extract layers, applying transformations to craft a comprehensive map of solar potential.
-- **CORS Conundrum:** Navigating CORS hurdles, our mentor's guidance proved invaluable. Overcoming permissions issues, we seamlessly connected the backend and frontend, transforming challenges into triumphs.
+- **Layout Templates:** Getting a great layout that resembles the efficnecy of the style in the web page
 
 ## 📚 **Knowledge Gained**
 
 The journey was a rich tapestry of learning:
 
-- **Google Cloud Mastery:** The Google Cloud platform unfolded its complexities, and we embraced the challenge. From API parameters to responses, we emerged adept, turning the unknown into the known.
+- **Google Cloud Mastery:** The Google Cloud platform unfolded its complexities, and we embraced the challenge. From API parameters to responses, we emerged adept, turning the unknown into the known.a
 
 ## 🌟 **What's Next for Sustainable AF**
 

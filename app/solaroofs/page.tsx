@@ -41,7 +41,7 @@ export default function SolaroofsPage() {
   return (
     <main>
       <h1 className="text-2xl">Solar Hotspots ☀️</h1>
-      {directions ? <Image src={imgUrl} alt="Solar hotspot." width={300} height={300}/> : "Enter your directions in the dashboard to get started!" }
+      {directions ? <Image src={imgUrl} alt="Solar hotspot." width={500} height={400}/> : "Enter your directions in the dashboard to get started!" }
     <div>
       {solaroofsFinancialData && (
         <div className="flex flex-row justify-center items-cent mt-4 md:mt-6 2xl:mt-7.5">

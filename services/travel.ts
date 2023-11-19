@@ -31,6 +31,7 @@ export async function getTravelDetails(directions: google.maps.DirectionsResult)
     // console.log(directions.routes[0].legs[0].steps[0].travel_mode);
     const carbonEmittedMt = calculateEmission(distanceMiles, directions.routes[0].legs[0].steps[0].travel_mode);
     // MAYBE UPDATE TRAVEL METHOD? we will have to see
+    console.log(distanceMiles, carbonEmittedMt);
 
     return {distanceMiles, timeEstimatedMinutes, carbonEmittedMt} as TravelDetails;
 }
