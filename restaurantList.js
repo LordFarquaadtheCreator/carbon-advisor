@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const RestaurantList = () => {
+export const RestaurantList = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
 
