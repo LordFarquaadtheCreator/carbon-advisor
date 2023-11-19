@@ -177,7 +177,7 @@ export default function CarbonDashboard() {
       {firstLeg && (
         <>
         <div className="flex flex-row">
-          <DirectionList
+        <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>  <DirectionList
             startAddress={firstLeg.start_address}
             endAddress={firstLeg.end_address}
             totalDistance={firstLeg.distance?.text ?? NULL_STRING}
@@ -187,14 +187,15 @@ export default function CarbonDashboard() {
                 return {
                   distance: step.distance?.text ?? NULL_STRING,
                   duration: step.duration?.text ?? NULL_STRING,
-                  // @ts-ignore
                   htmlInstructions: step["html_instructions"],  // there was an error in API, so we use key-syntax
                 };
               }) ?? []
             }
           />
-          <br/>
-          <RestaurantList endAddress={firstLeg.end_address} />
+        </div>
+
+          {/* <br/>
+          <RestaurantList endAddress={firstLeg.end_address} /> */}
         </div>
         </>
       )}
