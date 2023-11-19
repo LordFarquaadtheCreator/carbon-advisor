@@ -166,6 +166,7 @@ export default function CarbonDashboard() {
 
       {/* Direction Web View */}
       <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
+        { firstLeg?.end_address ? <RestaurantMap query={firstLeg.end_address} /> : <div>Loading</div>}
         <DirectionsInputForm
           onSubmit={(formData) => updateDirections(formData)}
         />
