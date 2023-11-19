@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
-export const RestaurantList = () => {
+const RestaurantList = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://boston-hacks-405214.uc.r.appspot.com/restaurants_fixedlocation');
+        const response = await fetch('https://boston-hacks-405214.uc.r.appspot.com/restaurants?' + new URLSearchParams ({
+          address: "George Sherman Union Boston"
+         }) );
         const data = await response.json();
         setRestaurants(data);
       } catch (error) {
