@@ -24,7 +24,7 @@ export default function DirectionList({
 }: DirectionListProps) {
   return (
     <div>
-      <h2 className="pt-5 text-2xl font-bold">🗺️ Directions</h2>
+      <h1 className="pt-5 text-2xl font-bold">🗺️ Directions 🗺️</h1>
       <p className="text-lg">
         <b>From:</b> {startAddress}
       </p>
