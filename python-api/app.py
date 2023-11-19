@@ -55,8 +55,10 @@ def hello_world():
     else:
         print(f"Error: {response.status_code}, {response.text}")
 
+    print(result)
     lat= result['location']['lat']
     lon= result['location']['lng']
+    print(lat, lon)
 
     url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
     params = {
@@ -157,8 +159,10 @@ async def heatmap():
     else:
         print(f"Error: {response.status_code}, {response.text}")
 
+    print(result)
     lat= result['location']['lat']
     lon= result['location']['lng']
+    print(lat, lon)
 
 
     url = "https://solar.googleapis.com/v1/dataLayers:get"
@@ -182,6 +186,7 @@ async def heatmap():
         # Request failed
         print(f"Error: {response.status_code}, {response.text}")
 
+    print(data)
     urls_base= ["rgbUrl", "maskUrl", "annualFluxUrl"]
     for url_base in urls_base:
         url_map= data[url_base]
