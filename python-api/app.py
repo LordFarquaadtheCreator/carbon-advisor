@@ -117,7 +117,7 @@ def hello_world(address: str):
     return {'names': results, 'main_map': main_map}
 
 @app.get("/route")
-async def hello_world(origin: str, destination: str, mode: str, alternatives: bool):
+async def route_carbon(origin: str, destination: str, mode: str, alternatives: bool):
     api_key= "AIzaSyAHbJM1jo4wyx5whpMNtfnpsHT30MjJ0JA"
     url = 'https://maps.googleapis.com/maps/api/directions/json'
     params = {'origin': origin,
@@ -152,6 +152,13 @@ async def hello_world(origin: str, destination: str, mode: str, alternatives: bo
             carbon_emissions += distance*15
 
     return round(carbon_emissions)
+
+@app.get("/route_map")
+async def route_map(origin: str, destination: str, mode: str):
+    api_key= "AIzaSyAHbJM1jo4wyx5whpMNtfnpsHT30MjJ0JA"
+
+    link= f"""https://www.google.com/maps/embed/v1/directions?key={api_key}&origin={origin}&destination={destination}&mode={mode.lower()}"""
+    return link
 
 @app.get("/heatmap")
 async def heatmap(address: str):
