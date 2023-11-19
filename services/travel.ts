@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import {calculateEmission} from '../carbon.mjs';
 
 export interface ICoordinate {
     lat: number,
@@ -27,7 +28,8 @@ type TravelStore = {
 export async function getTravelDetails(directions: google.maps.DirectionsResult) {
     const distanceMiles = directions.routes[0].legs[0].distance!.text;
     const timeEstimatedMinutes = directions.routes[0].legs[0].duration!.text;
-    const carbonEmittedMt = 20;
+    // console.log(directions.routes[0].legs[0].steps[0].travel_mode);
+    const carbonEmittedMt = calculateEmission(distanceMiles, directions.routes[0].legs[0].steps[0].travel_mode);
     // MAYBE UPDATE TRAVEL METHOD? we will have to see
 
     return {distanceMiles, timeEstimatedMinutes, carbonEmittedMt} as TravelDetails;
