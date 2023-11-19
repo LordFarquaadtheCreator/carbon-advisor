@@ -7,6 +7,8 @@ import ChartTwo from "../Charts/ChartTwo";
 import ChatCard from "../Chat/ChatCard";
 import TableOne from "../Tables/TableOne";
 import CardDataStats from "../CardDataStats";
+import CardComponent from "../pollen/pollen";
+import RestaurantList from "../../restaurantList";
 
 // without this the component renders on server and throws an error
 import dynamic from "next/dynamic";
@@ -149,17 +151,19 @@ export default function CarbonDashboard() {
             />
           </svg>
         </CardDataStats>
-      </div>
-      <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
-        {directions ? <GoogleMapDisplay directions={directions}/> : <p>Enter in your directions!</p>}
-        <DirectionsInputForm onSubmit={(formData) => updateDirections(formData)} />
-        {/* <ChartOne />
-        <ChartThree />
-        <div className="col-span-12 xl:col-span-8">
-          <TableOne />
         </div>
-        <ChatCard /> */}
-      </div>
+        <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
+            {directions ? <GoogleMapDisplay directions={directions}/> : <p>Enter in your directions!</p>}
+            <DirectionsInputForm onSubmit={(formData) => updateDirections(formData)} />
+            {/* <ChartOne />
+            <ChartThree />
+            <div className="col-span-12 xl:col-span-8">
+            <TableOne />
+            </div>
+            <ChatCard /> */}
+        
+        </div>
+        <RestaurantList></RestaurantList>
     </>
   );
 }
