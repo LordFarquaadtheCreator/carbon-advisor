@@ -16,21 +16,34 @@ export type DirectionsFormData = {
 
 type DirectionsStore = {
   directions: GoogleDirectionsResult | null;
+  embedUrl: string | null;
   updateDirections: (formData: DirectionsFormData) => void;
 };
 
-const urlConverter = (val: string) => encodeURIComponent(val.toLowerCase().replace(/[^a-z0-9 _-]+/gi, '+'));
+const urlConverter = (val: string) =>
+  encodeURIComponent(val.toLowerCase().replace(/[^a-z0-9 _-]+/gi, "+"));
 
-async function getDirections(
-  
-  { origin, destination, mode }: DirectionsFormData
-) {
+async function getDirections({
+  origin,
+  destination,
+  mode,
+}: DirectionsFormData) {
   try {
-    const result = await axios.get(
-        `/api/${urlConverter(origin)}/${urlConverter(destination)}/${mode}`
-    )
+    const directionsResult = await axios.get(
+      `/api/routes-map-data/${urlConverter(origin)}/${urlConverter(
+        destination
+      )}/${mode}`
+    );
+    const embedResult = await axios.get(
+      `/api/routes-map-embed/${urlConverter(origin)}/${urlConverter(
+        destination
+      )}/${mode}`
+    );
 
-    return result.data as GoogleDirectionsResult;
+    return {
+      directions: directionsResult.data as GoogleDirectionsResult,
+      embedUrl: embedResult.data as string,
+    };
   } catch (error) {
     console.error("Error fetching directions:", error);
   }
@@ -38,14 +51,15 @@ async function getDirections(
 
 export const useDirections = create<DirectionsStore>((set) => ({
   directions: null,
+  embedUrl: null,
   updateDirections: async (formData) => {
     let resData = await getDirections(formData);
 
     // also update travel state
     if (resData) {
-      useTravelStore.getState().updateTravelDetails(resData);
+      useTravelStore.getState().updateTravelDetails(resData.directions);
     }
 
-    set({ directions: resData ?? null });
+    set({ directions: resData?.directions, embedUrl: resData?.embedUrl });
   },
 }));
