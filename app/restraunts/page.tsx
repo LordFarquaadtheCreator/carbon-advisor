@@ -62,7 +62,7 @@ export default function RestrauntsPage() {
     <h1>
       Sustainable Restraunts!
     </h1>
-<div className="grid grid-cols-12 gap-4">
+    <div className="grid grid-cols-12 gap-4">
       {/* Direction Web View -> Static Image */}
       <div className='col-span-8 rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark'>      {
         imgUrl ? (
@@ -84,23 +84,9 @@ export default function RestrauntsPage() {
         <DirectionsInputForm onSubmit={(formData) => updateDirections(formData)} />
       </div>
       </div>
-
-      {/* <div className="justify-center items-cent mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
-        <div className="col-span-7 rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
-          {firstLeg?.end_address ? <RestaurantMap query={firstLeg.end_address} /> : <RestaurantMap query={'Boston University'} />}
-        </div> */}
-        {/* Input Form */}
-        {/* <div className="col-span-5  rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
-          <DirectionsInputForm onSubmit={(formData) => updateDirections(formData)} />
-        </div>
-      </div> */}
-      {/* Prints Photo */}
-      {/* Prints Resteraunts */}
-      {firstLeg && (<>
-        {/* <div>
-          <img src={imgUrl} alt="Restaurant Map" />
-        </div> */}
-
+<br/>
+      {firstLeg && (
+      <>
         <div className='rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark'>
           <RestaurantList endAddress={firstLeg.end_address} /> 
         </div>
