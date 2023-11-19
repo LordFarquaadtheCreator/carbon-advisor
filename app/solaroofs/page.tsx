@@ -2,7 +2,8 @@
 
 import { useDirections } from "@/services/directions";
 import { useSolaroofsStore } from "@/services/solaroofs";
-import React, { useEffect } from "react";
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
 
 const formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -13,22 +14,35 @@ function formatToCurrency(stringCurrency: string) {
   return formatter.format(num);
 }
 
-
 export default function SolaroofsPage() {
   const [directions] = useDirections((state) => [state.directions]);
   const { solaroofsFinancialData, updateSolaroofsDetails } = useSolaroofsStore(
     (state) => state
   );
+  const [imgUrl, setImgUrl] = useState("");
 
   useEffect(() => {
     if (directions) {
-      updateSolaroofsDetails(directions.routes[0].legs[0].end_address);
+      const endAddress = directions.routes[0].legs[0].end_address;
+      updateSolaroofsDetails(endAddress);
+      
+      (async () => {
+        const imageUrl = "https://sustainable-af-api.onrender.com/heatmap?" + new URLSearchParams({
+          address: endAddress
+         }) ;
+        const res = await fetch(imageUrl);
+        const imageBlob = await res.blob();
+        const imageObjectURL = URL.createObjectURL(imageBlob);
+        setImgUrl(imageObjectURL);
+      })()
     }
   }, [directions]);
 
   return (
     <main>
-      <div>IMAGE HERE</div>
+      <h1 className="text-2xl">Solar Hotspots ☀️</h1>
+      {directions ? <Image src={imgUrl} alt="Solar hotspot." width={300} height={300}/> : "Enter your directions in the dashboard to get started!" }
+    <div>
       {solaroofsFinancialData && (
         <div className="flex flex-row justify-center items-cent mt-4 md:mt-6 2xl:mt-7.5">
           <div className="w-1/2 rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
@@ -45,6 +59,7 @@ export default function SolaroofsPage() {
           </div>
         </div>
       )}
+      </div>
     </main>
   );
 }
