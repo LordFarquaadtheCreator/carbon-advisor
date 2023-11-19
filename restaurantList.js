@@ -25,6 +25,7 @@ const RestaurantList = ({ endAddress }) => {
   if (loading) {
     return <p>Loading...</p>;
   }
+  console.log(restaurants)
 
   return (
     <div>
