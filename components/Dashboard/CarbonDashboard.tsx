@@ -1,4 +1,5 @@
 "use client";
+// import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
 
 import React, { use } from "react";
 import ChartOne from "../Charts/ChartOne";
@@ -9,6 +10,8 @@ import TableOne from "../Tables/TableOne";
 import CardDataStats from "../CardDataStats";
 import CardComponent from "../pollen/pollen";
 import RestaurantList from "../../restaurantList";
+import RestaurantMap from "../../RestaurantMap";
+
 
 // without this the component renders on server and throws an error
 import dynamic from "next/dynamic";
@@ -25,11 +28,12 @@ export default function CarbonDashboard() {
     carbonEmittedMt,
     updateTravelDetails,
   } = useTravelStore((state) => state);
-  const { directions, updateDirections } = useDirections((state) => state);
+    const { directions, updateDirections } = useDirections((state) => state);
+    const firstLeg = directions?.routes[0].legs[0];
 
   return (
     <>
-      <button onClick={() => updateTravelDetails()}>TEST</button>
+      <button onClick={() => updateTravelDetails()}></button>
       {/**  */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3 2xl:gap-7.5">
         <CardDataStats title="miles" total={`${distanceMiles ?? "---"}`}>
@@ -116,8 +120,7 @@ export default function CarbonDashboard() {
             </svg>
           )}
         </CardDataStats>
-        {/**
-         * !!! WORK ON CONVERTING METRIC TONS TO A FAMILAR UNIT */}
+        {/* !!! WORK ON CONVERTING METRIC TONS TO A FAMILAR UNIT */}
         <CardDataStats
           title="metric tons"
           total={`${carbonEmittedMt ?? "---"}`}
@@ -152,17 +155,16 @@ export default function CarbonDashboard() {
           </svg>
         </CardDataStats>
         </div>
-        <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
-            {directions ? <GoogleMapDisplay directions={directions}/> : <p>Enter in your directions!</p>}
-            <DirectionsInputForm onSubmit={(formData) => updateDirections(formData)} />
-            {/* <ChartOne />
-            <ChartThree />
-            <div className="col-span-12 xl:col-span-8">
-            <TableOne />
+
+        <div className="flex flex-row">
+            <div className="flex-grow">
+                <RestaurantMap query={firstLeg}></RestaurantMap>
             </div>
-            <ChatCard /> */}
-        
+            <div>
+                <DirectionsInputForm onSubmit={(formData) => updateDirections(formData)} />
+            </div>
         </div>
+        
         <RestaurantList></RestaurantList>
     </>
   );

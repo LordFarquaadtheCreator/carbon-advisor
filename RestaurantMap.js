@@ -1,17 +1,18 @@
 import React from 'react';
+import {} from 'dotenv/config'
 
-const RestaurantMap = () => {
+export const RestaurantMap = ({ query }) => {
+  const encodedQuery = encodeURIComponent(query);
+  const src = `https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}&q=${encodedQuery}`;
+
   return (
-    <div>
-      <h2>Restaurant Map 🍽️ </h2>
       <iframe
         title="Restaurant Map"
         width="600"
         height="400"
-        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAHbJM1jo4wyx5whpMNtfnpsHT30MjJ0JA&q=450+Massachusetts+Ave,+CambridgeVeggie+Galaxy"
+        src={src}
         allowFullScreen
       ></iframe>
-    </div>
   );
 };
 

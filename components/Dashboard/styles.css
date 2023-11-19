@@ -1,0 +1,3 @@
+.flex-grow {
+  flex-grow: 6; /* This will allow the div to take up more space compared to others */
+}
