@@ -258,3 +258,62 @@ async def heatmap(address: str):
     # Save the PIL Image to a file
     pil_image.save('output_image.png')
     return FileResponse('output_image.png')
+
+@app.get("/panelsAnalysis")
+async def panelsAnalysis(address: str):
+    api_key= "AIzaSyAHbJM1jo4wyx5whpMNtfnpsHT30MjJ0JA"
+    url = 'https://maps.googleapis.com/maps/api/geocode/json'
+    parameters = {
+        'address': address, 
+        'key': api_key,
+    }
+
+    response = requests.get(url, params=parameters)
+
+    if response.status_code == 200:
+        data = response.json()
+
+        if data['status'] == 'OK':
+            lat = data['results'][0]['geometry']['location']['lat']
+            lon = data['results'][0]['geometry']['location']['lng']
+            print(lat, lon)
+        else:
+            print(f'Error: {data["status"]}')
+    else:
+        print(f'Request failed with status code: {response.status_code}')
+
+    print(data)
+    
+
+    url = "https://solar.googleapis.com/v1/buildingInsights:findClosest"
+    params = {
+        "location.latitude":lat,
+        "location.longitude": lon,
+        "requiredQuality": "HIGH",
+        "key": api_key
+    }
+
+    response = requests.get(url, params=params)
+
+    if response.status_code == 200:
+        # Request was successful
+        data = response.json()
+        print(data)
+    else:
+        # Request failed
+        print(f"Error: {response.status_code}")
+        print(response.text)
+
+    for i in range(len(data["solarPotential"]['financialAnalyses'])):
+        indice= data["solarPotential"]['financialAnalyses'][i]["panelConfigIndex"]
+        if indice != -1:
+            min_initial= data["solarPotential"]['financialAnalyses'][i]['cashPurchaseSavings']['outOfPocketCost']['units']
+            min_payback= data["solarPotential"]['financialAnalyses'][i]['cashPurchaseSavings']['paybackYears']
+            min_savings= data["solarPotential"]['financialAnalyses'][i]['cashPurchaseSavings']['savings']['savingsLifetime']['units']
+            break
+
+    max_initial= data["solarPotential"]['financialAnalyses'][-1]['cashPurchaseSavings']['outOfPocketCost']['units']
+    max_payback= data["solarPotential"]['financialAnalyses'][-1]['cashPurchaseSavings']['paybackYears']
+    max_savings= data["solarPotential"]['financialAnalyses'][-1]['cashPurchaseSavings']['savings']['savingsLifetime']['units']
+
+    return {'min_initial': min_initial, 'min_payback': min_payback, 'min_savings': min_savings, 'max_initial': max_initial, 'max_payback': max_payback, 'max_savings': max_savings}
