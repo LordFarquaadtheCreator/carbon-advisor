@@ -28,6 +28,7 @@ Unleash the power of the sun. Our program generates maps showcasing the solar po
 ![Static Badge](https://img.shields.io/badge/CSS-blue?style=for-the-badge&logo=css3&logoColor=white&color=%231572B6)
 ![Static Badge](https://img.shields.io/badge/Node.js-blue?style=for-the-badge&logo=node.js&logoColor=white&color=%23339933)
 ![Static Badge](https://img.shields.io/badge/Tailwind%20CSS-blue?style=for-the-badge&logo=tailwind%20css&logoColor=white&color=%2306B6D4)
+![Static Badge](https://img.shields.io/badge/JavaScript-blue?style=for-the-badge&logo=typescript&logoColor=black&color=%3178C6)
 
 Our technological symphony encompasses:
 
