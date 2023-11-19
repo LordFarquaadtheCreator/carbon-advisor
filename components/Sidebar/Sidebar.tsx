@@ -123,7 +123,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </svg>
               Dashboard
             </Link>
-            <Link
+            {/* <Link
               href="/routes"
               className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                 pathname.includes("/routes") && "bg-graydark dark:bg-meta-4"
@@ -143,7 +143,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 />
               </svg>
               Routes
-            </Link>
+            </Link> */}
             <Link
               href="/restraunts"
               className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
@@ -186,7 +186,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </svg>
                 Solaroofs
             </Link>
-            <Link
+            {/* <Link
               href="/waste"
               className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                 pathname.includes("/waste") && "bg-graydark dark:bg-meta-4"
@@ -206,7 +206,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 />
               </svg>
                 Waste
-            </Link>
+            </Link> */}
           </div>
         </nav>
         {/* <!-- Sidebar Menu --> */}

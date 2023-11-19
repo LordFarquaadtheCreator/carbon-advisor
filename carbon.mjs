@@ -28,6 +28,6 @@ export function calculateEmission(milesTraveled, mode) {
         const totalCaloriesBurned = milesTraveled * avgCaloriesPerMile;
         co2EmissionsKg = (totalCaloriesBurned / 1000) * carbonFootprintPer1000Calories;
     }
-
+// console.log(co2EmissionsKg)
     return Math.round(co2EmissionsKg);
 }

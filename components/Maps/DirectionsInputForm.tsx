@@ -25,6 +25,7 @@ export const DirectionsInputForm: React.FC<DirectionsInputFormProps> = ({ onSubm
           <option value="transit">Transit</option>
           <option value="driving">Car</option>
           <option value="bicycling">Bike</option>
+          <option value="walking">Walk</option>
         </select>
       </div>
       <button type="submit" style={{ width: '100%', display: 'block'}}><b><u>Submit</u></b></button>
