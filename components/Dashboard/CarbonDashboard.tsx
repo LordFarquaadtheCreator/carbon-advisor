@@ -32,8 +32,6 @@ export default function CarbonDashboard() {
   } = useTravelStore((state) => state);
   const { directions, updateDirections } = useDirections((state) => state);
   const firstLeg = directions?.routes[0].legs[0];
-  const startAddress = firstLeg?.start_location;
-  const endAddresss = firstLeg?.end_location;
 
   return (
     <>
@@ -181,11 +179,14 @@ export default function CarbonDashboard() {
           totalDistance={firstLeg.distance?.text ?? NULL_STRING}
           totalDuration={firstLeg.duration?.text ?? NULL_STRING}
           steps={
-            firstLeg.steps.map(({ distance, duration, instructions }) => ({
-              distance: distance?.text ?? NULL_STRING,
-              duration: duration?.text ?? NULL_STRING,
-              htmlInstructions: instructions,
-            })) ?? []
+            firstLeg.steps.map((step) => {
+              console.log(step);
+              return {
+                distance: step.distance?.text ?? NULL_STRING,
+                duration: step.duration?.text ?? NULL_STRING,
+                htmlInstructions: step["html_instructions"],
+              };
+            }) ?? []
           }
         />
       )}

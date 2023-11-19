@@ -40,6 +40,7 @@ export const useDirections = create<DirectionsStore>((set) => ({
   updateDirections: async (formData) => {
     let resData = await getDirections(formData);
 
+    console.log(resData);
     set({ directions: resData ?? null });
   },
 }));
