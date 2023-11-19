@@ -32,32 +32,51 @@ app.add_middleware(
 async def hello_world():
     return {'message':'Hello World'}
 
-@app.get("/restaurants_fixedlocation")
-def hello_world():
+@app.get("/get_coordinates")
+async def coordinates(addres: str):
     api_key= "AIzaSyAHbJM1jo4wyx5whpMNtfnpsHT30MjJ0JA"
-    url = "https://www.googleapis.com/geolocation/v1/geolocate?key="+api_key
-    headers = {
-        "Content-Type": "application/json"
-    }
-    data = {
-        "homeMobileCountryCode": 310,
-        "homeMobileNetworkCode": 410,
-        "radioType": "gsm",
-        "carrier": "Vodafone",
-        "considerIp": True
+    url = 'https://maps.googleapis.com/maps/api/geocode/json'
+    parameters = {
+        'address': addres, 
+        'key': api_key,
     }
 
-    response = requests.post(url, headers=headers, json=data)
+    response = requests.get(url, params=parameters)
 
-    # Check if the request was successful (status code 200)
-    if response.ok:
-        result = response.json()
+    if response.status_code == 200:
+        data = response.json()
+
+        if data['status'] == 'OK':
+            lat = data['results'][0]['geometry']['location']['lat']
+            lon = data['results'][0]['geometry']['location']['lng']
+        else:
+            print(f'Error: {data["status"]}')
     else:
-        print(f"Error: {response.status_code}, {response.text}")
+        print(f'Request failed with status code: {response.status_code}')
+    
+    return {'lat': lat, 'lon': lon}
 
-    print(result)
-    lat= result['location']['lat']
-    lon= result['location']['lng']
+@app.get("/restaurants")
+def hello_world(addres: str):
+    api_key= "AIzaSyAHbJM1jo4wyx5whpMNtfnpsHT30MjJ0JA"
+    url = 'https://maps.googleapis.com/maps/api/geocode/json'
+    parameters = {
+        'address': addres, 
+        'key': api_key,
+    }
+
+    response = requests.get(url, params=parameters)
+
+    if response.status_code == 200:
+        data = response.json()
+
+        if data['status'] == 'OK':
+            lat = data['results'][0]['geometry']['location']['lat']
+            lon = data['results'][0]['geometry']['location']['lng']
+        else:
+            print(f'Error: {data["status"]}')
+    else:
+        print(f'Request failed with status code: {response.status_code}')
     print(lat, lon)
 
     url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
@@ -137,33 +156,27 @@ async def hello_world(origin: str, destination: str, mode: str, alternatives: bo
     return round(carbon_emissions)
 
 @app.get("/heatmap")
-async def heatmap():
+async def heatmap(addres: str):
     api_key= "AIzaSyAHbJM1jo4wyx5whpMNtfnpsHT30MjJ0JA"
-    url = "https://www.googleapis.com/geolocation/v1/geolocate?key="+api_key
-    headers = {
-        "Content-Type": "application/json"
-    }
-    data = {
-        "homeMobileCountryCode": 310,
-        "homeMobileNetworkCode": 410,
-        "radioType": "gsm",
-        "carrier": "Vodafone",
-        "considerIp": True
+    url = 'https://maps.googleapis.com/maps/api/geocode/json'
+    parameters = {
+        'address': addres, 
+        'key': api_key,
     }
 
-    response = requests.post(url, headers=headers, json=data)
+    response = requests.get(url, params=parameters)
 
-    # Check if the request was successful (status code 200)
-    if response.ok:
-        result = response.json()
+    if response.status_code == 200:
+        data = response.json()
+
+        if data['status'] == 'OK':
+            lat = data['results'][0]['geometry']['location']['lat']
+            lon = data['results'][0]['geometry']['location']['lng']
+        else:
+            print(f'Error: {data["status"]}')
     else:
-        print(f"Error: {response.status_code}, {response.text}")
-
-    print(result)
-    lat= result['location']['lat']
-    lon= result['location']['lng']
+        print(f'Request failed with status code: {response.status_code}')
     print(lat, lon)
-
 
     url = "https://solar.googleapis.com/v1/dataLayers:get"
     params = {
