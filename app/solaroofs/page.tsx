@@ -2,6 +2,16 @@ import React from 'react'
 
 export default function SolaroofsPage() {
   return (
-    <div>SolaroofsPage</div>
+    <main>
+      <div>IMAGE HERE</div>
+      <div>
+        <div>
+          
+        </div>
+        <div>
+
+        </div>
+      </div>
+    </main>
   )
 }

@@ -19,6 +19,8 @@ app = FastAPI()
 #Allow all origins, methods, and headers for demonstration purposes
 origins = ["*"]
 
+api_key= "AIzaSyAHbJM1jo4wyx5whpMNtfnpsHT30MjJ0JA"
+
 # Setup CORS middleware
 app.add_middleware(
     CORSMiddleware,
@@ -34,7 +36,6 @@ async def hello_world():
 
 @app.get("/get_coordinates")
 async def coordinates(address: str):
-    api_key= "AIzaSyAHbJM1jo4wyx5whpMNtfnpsHT30MjJ0JA"
     url = 'https://maps.googleapis.com/maps/api/geocode/json'
     parameters = {
         'address': address, 
@@ -58,7 +59,6 @@ async def coordinates(address: str):
 
 @app.get("/restaurants")
 def hello_world(address: str):
-    api_key= "AIzaSyAHbJM1jo4wyx5whpMNtfnpsHT30MjJ0JA"
     url = 'https://maps.googleapis.com/maps/api/geocode/json'
     parameters = {
         'address': address, 
@@ -114,11 +114,20 @@ def hello_world(address: str):
     for i in range(len(data["results"])):
         results.append(data["results"][i]["name"] + " " + data["results"][i]["vicinity"])
 
-    return {'names': results, 'main_map': main_map}
+    base_link= f"https://maps.googleapis.com/maps/api/staticmap?center={lat},{lon}&zoom=13&size=600x800"
+    markers=""
+    for i in range(len(data["results"])):
+        temp_lat=data["results"][i]["geometry"]["location"]["lat"]
+        temp_lon=data["results"][i]["geometry"]["location"]["lng"]
+        marker= f"&markers=color:green%7Clabel:{i+1}%7C{temp_lat},{temp_lon}"
+        markers+= marker
+    link= base_link+markers+"&key="+api_key
+    print(link)
+
+    return {'names': results, 'main_map': main_map, "static_map": link}
 
 @app.get("/route")
-async def hello_world(origin: str, destination: str, mode: str, alternatives: bool):
-    api_key= "AIzaSyAHbJM1jo4wyx5whpMNtfnpsHT30MjJ0JA"
+async def route_carbon(origin: str, destination: str, mode: str, alternatives: bool):
     url = 'https://maps.googleapis.com/maps/api/directions/json'
     params = {'origin': origin,
             'destination': destination,
@@ -152,6 +161,71 @@ async def hello_world(origin: str, destination: str, mode: str, alternatives: bo
             carbon_emissions += distance*15
 
     return round(carbon_emissions)
+
+@app.get("/route_map")
+async def route_map(origin: str, destination: str, mode: str):
+    link= f"""https://www.google.com/maps/embed/v1/directions?key={api_key}&origin={origin}&destination={destination}&mode={mode.lower()}"""
+    return link
+
+@app.get("/pollution")
+async def pollution(address: str):
+    url = 'https://maps.googleapis.com/maps/api/geocode/json'
+    parameters = {
+        'address': address, 
+        'key': api_key,
+    }
+
+    response = requests.get(url, params=parameters)
+
+    if response.status_code == 200:
+        data = response.json()
+
+        if data['status'] == 'OK':
+            lat = data['results'][0]['geometry']['location']['lat']
+            lon = data['results'][0]['geometry']['location']['lng']
+        else:
+            print(f'Error: {data["status"]}')
+    else:
+        print(f'Request failed with status code: {response.status_code}')
+    print(lat, lon)
+
+    url = f'https://airquality.googleapis.com/v1/currentConditions:lookup?key={api_key}'
+
+    data = {
+        "universalAqi": True,
+        "location": {
+            "latitude": 37.419734,
+            "longitude": -122.0827784
+        },
+        "extraComputations": [
+            "HEALTH_RECOMMENDATIONS",
+            "DOMINANT_POLLUTANT_CONCENTRATION",
+            "POLLUTANT_CONCENTRATION",
+            "LOCAL_AQI",
+            "POLLUTANT_ADDITIONAL_INFO"
+        ],
+        "languageCode": "en"
+    }
+    headers = {'Content-Type': 'application/json'}
+    response = requests.post(url, json=data, headers=headers)
+
+    data = response.json()
+
+    co2= data["pollutants"][0]["concentration"]["value"]
+    no2= data["pollutants"][1]["concentration"]["value"]
+    o3= data["pollutants"][2]["concentration"]["value"]
+    pm10= data["pollutants"][3]["concentration"]["value"]
+    pm25= data["pollutants"][4]["concentration"]["value"]
+    so2= data["pollutants"][5]["concentration"]["value"]
+
+    general_recommendation= data["healthRecommendations"]["generalPopulation"]
+    elderly_recommendation= data["healthRecommendations"]["elderly"]
+    children_recommendation= data["healthRecommendations"]["children"]
+    lung_recommendation= data["healthRecommendations"]["lungDiseasePopulation"]
+
+    return {'co2': co2, 'no2': no2, 'o3': o3, 'pm10': pm10, 'pm25': pm25, 'so2': so2, 
+            'general_recommendation': general_recommendation, 'elderly_recommendation': elderly_recommendation, 
+            'children_recommendation': children_recommendation, 'lung_recommendation': lung_recommendation}    
 
 @app.get("/heatmap")
 async def heatmap(address: str):

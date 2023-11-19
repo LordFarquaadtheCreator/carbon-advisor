@@ -1,88 +1,75 @@
-# TailAdmin Next.js - Free Next.js Tailwind Admin Dashboard Template
+# 🌿 **Inspiration for a Sustainable Future**
 
-TailAdmin is a free and open-source admin dashboard template built on **Next.js and Tailwind CSS** providing developers with everything they need to create a feature-rich and data-driven: back-end, dashboard, or admin panel solution for any sort of web project.
+In a world grappling with the urgent call of the climate emergency, we strive to make sustainability not just a buzzword but a tangible, accessible reality for everyone. The vast sea of numbers and information can be overwhelming, often leaving many disengaged. Our mission is to bridge this gap, making sustainability a journey that's not just vital but also delightful.
 
-[![tailwind nextjs admin template](https://github.com/TailAdmin/free-nextjs-admin-dashboard/blob/main/tailadmin-nextjs.jpg)](https://nextjs-demo.tailadmin.com/)
+![our-team](https://cdn.discordapp.com/attachments/1174831794986700891/1175664015096152114/IMG_1751.jpg?ex=656c0d6f&is=6559986f&hm=d2c601fac018d0f40d7fad5fe6478a5b5afba1d3ae3f27671c1d9173e65d6de9&)
 
-With TailAdmin Next.js, you get access to all the necessary dashboard UI components, elements, and pages required to build a high-quality and complete dashboard or admin panel. Whether you're building a dashboard or admin panel for a complex web application or a simple website. 
+## 🚀 **Revolutionizing Sustainable Living**
 
-TailAdmin utilizes the powerful features of **Next.js 13** and common features of Next.js such as server-side rendering (SSR), static site generation (SSG), and seamless API route integration. Combined with the advancements of **React 18** and the robustness of **TypeScript**, TailAdmin is the perfect solution to help get your project up and running quickly.
+Introducing our innovative web app that encapsulates a myriad of tools empowering individuals to weave sustainability into their daily lives effortlessly:
 
-### [✨ Visit Website](https://tailadmin.com/)
-### [🚀 PRO Demo](https://nextjs-demo.tailadmin.com/)
-### [🚀 FREE Demo](https://nextjs-free-demo.tailadmin.com/)
+### 🌐 **Sustainable Route Planning**
+Embark on a journey with purpose. Input your origin and destination, and let our app chart the greenest route, minimizing your carbon footprint. Sustainable living starts with every step you take.
 
-### TailAdmin Next.js PRO vs TailAdmin Next.js FREE Comparison 📊
+### 🍃 **Green Gastronomy**
+Elevate your dining choices. Specify your location, and our app unveils restaurants with a commitment to sustainability. Discover eco-friendly options that tantalize your taste buds and nurture the planet.
 
-#### [TailAdmin Next.js PRO](https://nextjs-demo.tailadmin.com/)
-- 4 Unique Dashboards: Analytics, Ecommerce, Marketing, and CRM (More will be added)
-- 120+ Dashboard UI Components
-- 200+ Total UI Elements
-- 45+ HTML Files
-- All Essential Elements and Files
-- Full Figma Design Source - As Shown on Demo
-___
+### ☀️ **Solar-Roof Mapping**
+Unleash the power of the sun. Our program generates maps showcasing the solar potential of rooftops in your vicinity. Not just that, it provides a budget-friendly roadmap for solar panel installations—maximizing impact, minimizing investment.
 
-#### [TailAdmin Next.js FREE](https://free-nextjs-demo.tailadmin.com/)
-- 1 Unique Dashboard
-- 30+ Dashboard UI Components
-- 50+ Total UI Elements 
-- 10+ HTML Files
-- TypeScript Support
-- Basic UI Kit Elements and Files
-- Figma Design Source - Free Sample
-___
+## 🛠️ **Crafting the Future with Technology**
 
-### [⬇️ Download Now](https://tailadmin.com/download)
+![Python Badge](https://img.shields.io/badge/Python-blue?style=for-the-badge&logo=python&logoColor=white&color=%233776AB)
+![FastAPI Badge](https://img.shields.io/badge/Fast%20API-blue?style=for-the-badge&logo=fastapi&logoColor=white&color=%23009688)
+![JavaScript Badge](https://img.shields.io/badge/JavaScript-blue?style=for-the-badge&logo=javascript&logoColor=black&color=%23F7DF1E)
+![React Badge](https://img.shields.io/badge/React-blue?style=for-the-badge&logo=react&logoColor=black&color=%2361DAFB)
+![Google Cloud Badge](https://img.shields.io/badge/Google%20Cloud-blue?style=for-the-badge&logo=google%20cloud&logoColor=white&color=%234285F4)
+![Static Badge](https://img.shields.io/badge/HTML-blue?style=for-the-badge&logo=html5&logoColor=white&color=%23E34F26)
+![Static Badge](https://img.shields.io/badge/CSS-blue?style=for-the-badge&logo=css3&logoColor=white&color=%231572B6)
+![Static Badge](https://img.shields.io/badge/Node.js-blue?style=for-the-badge&logo=node.js&logoColor=white&color=%23339933)
 
-### [⚡ Get PRO Version](https://tailadmin.com/pricing)
+Our technological symphony encompasses:
 
-### [📄 Documentation/Installation](https://tailadmin.com/docs)
+**Backend:** Crafted with Python and deployed seamlessly with FastAPI on the powerful Google Cloud App Engine. A harmonious dance of technologies that ensures efficiency and reliability, accessible through React using fetch.
 
-### [🖌️ TailAdmin Figma Free Sample](https://www.figma.com/community/file/1214477970819985778)
+**Frontend:**
 
-### [👉 TailAdmin HTML Version](https://github.com/TailAdmin/tailadmin-free-tailwind-dashboard-template)
+## 🏆 **Tracks and Triumphs**
 
+### 🌱 **Sustainable Solutions & Best Sustainability Hack**
+Our project is an ode to sustainability, aiming to seamlessly integrate eco-conscious choices into the daily lives of all.
 
-## Installation
+### ☁️ **Best Use of Google Cloud**
+Navigating the vast Google Cloud ecosystem, we harnessed the power of APIs like SolarAPI, Routes API, Geocoding API, and more. Real-time data and captivating visualizations were woven into our solution hosted on the robust App Engine.
 
-Here are the steps you need to follow to install the dependencies.
+### 🎨 **Most Creative Use of GitHub**
+Witness our journey through commits in our repository, accompanied by an awe-inspiring Read.ME hosted on GitHub Pages. Every line of code, a brushstroke painting a picture of sustainability.
 
-1. Download and extract the template from Next.js Templates.
+### 🌐 **Best Domain Name from GoDaddy Registry**
+Our commitment to sustainability extends to our domain—sustanaible.af, a testament to our dedication to a sustainable future.
 
-2. After that **cd** into the template directory then run this command to install all the dependencies
+## 🚧 **Overcoming Challenges, Achieving Milestones**
 
-```
-npm install
-```
-or
+### 🌌 **Challenges Faced**
+<!-- Elaborate on the challenges faced during the hackathon -->
 
-```
-yarn install
-```
+### 🏆 **Proud Accomplishments**
+In the face of challenges, we triumphed:
 
-3. Now run this command to start the developement server
+- **Solar API Mastery:** Unraveling the complexities of Solar API, we delved deep to extract layers, applying transformations to craft a comprehensive map of solar potential.
+- **CORS Conundrum:** Navigating CORS hurdles, our mentor's guidance proved invaluable. Overcoming permissions issues, we seamlessly connected the backend and frontend, transforming challenges into triumphs.
 
-```
-npm run dev
-```
+## 📚 **Knowledge Gained**
 
-or 
+The journey was a rich tapestry of learning:
 
-```
-yarn dev
-```
+- **Google Cloud Mastery:** The Google Cloud platform unfolded its complexities, and we embraced the challenge. From API parameters to responses, we emerged adept, turning the unknown into the known.
 
+## 🌟 **What's Next for Sustainable AF**
 
-## Free Admin Dashboard Template for Next.js Built-with Tailwind CSS, React 18 and TypeScript
-TailAdmin Next.js is a free dashboard template, which uses Tailwind CSS, is a great starting point for dashboard UI. This template uses the Next.js JavaScript framework and the easy-to-use Tailwind CSS framework. The Tailwind CSS and Next.js Dashboard Template comes with ready-made components like navigation menus, charts, tables, and forms. These components can be easily adjusted and added to any Next.js web application.
+The journey doesn't end here. Our roadmap includes:
 
-TailAdmin for Next.js provides all essential Next.js + Tailwind CSS UI components that can be copied and pasted directly into your dashboard projects. The range of components includes charts, graphs, navbars, tabs, buttons, cards, tables, profiles, forms, modals, app pages, calendars, web app example templates, and more, all coded for Next.js React and styled using Tailwind CSS.
+- Expanding Solar Insights: Dive deeper into solar solutions, exploring advanced features and integrations.
+- User-Driven Enhancements: Continuously refine and enhance the user experience, making sustainability intuitive and engaging.
 
-If you're on the hunt for a top-quality Next.js-Tailwind Dashboard, Admin Panel Template, or UI Kit, TailAdmin is the perfect choice for you!
-
-### 📄 License
-TailAdmin Next.js Free is 100% free and open-source; feel free to use it with your personal and commercial projects.
-
-### 💜 Support
-If you like the template, please star this repository to inspire the team to create more stuff like this and reach more users like you!
+Join us on this transformative journey as we pave the way for a Sustainable AF future! 🌍💚
