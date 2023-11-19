@@ -11,24 +11,24 @@ export const DirectionsInputForm: React.FC<DirectionsInputFormProps> = ({ onSubm
   const { register, handleSubmit } = useForm<DirectionsFormData>();
 
   return (
-  <form onSubmit={handleSubmit(onSubmit)}>
-    <div style={{ marginBottom: '10px' }}>
-      <input {...register("origin")} placeholder="Starting Location" style={{ width: '100%', display: 'block' }} />
-    </div>
-    <div style={{ marginBottom: '10px' }}>
-      <input {...register("destination")} placeholder="Destination" style={{ width: '100%', display: 'block' }} />
-    </div>
-    <div style={{ marginBottom: '10px' }}>
-      <select {...register("mode", { required: true })} style={{ width: '100%', display: 'block' }}>
-        <option value="">Type of Transport</option>
-        <option value="transit">Transit</option>
-        <option value="driving">Car</option>
-        <option value="bicycling">Bike</option>
-      </select>
-    </div>
-    <button type="submit" style={{ width: '100%', display: 'block' }}>Submit</button>
-  </form>
-);
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div style={{ marginBottom: '10px' }}>
+        <input {...register("origin")} placeholder="Starting Location" style={{ width: '100%', display: 'block', backgroundColor: 'transparent' }} />
+      </div>
+      <div style={{ marginBottom: '10px' }}>
+        <input {...register("destination")} placeholder="Destination" style={{ width: '100%', display: 'block', backgroundColor: 'transparent' }} />
+      </div>
+      <div style={{ marginBottom: '10px' }}>
+        <select {...register("mode", { required: true })} style={{ width: '100%', display: 'block', backgroundColor: 'transparent' }}>
+          <option value="">Type of Transport</option>
+          <option value="transit">Transit</option>
+          <option value="driving">Car</option>
+          <option value="bicycling">Bike</option>
+        </select>
+      </div>
+      <button type="submit" style={{ width: '100%', display: 'block'}}><b><u>Submit</u></b></button>
+    </form>
+  );
 };
 
 

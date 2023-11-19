@@ -1,0 +1,8 @@
+h1{
+    font-size: 36px; /* Adjust size as needed */
+    font-weight: bold; /* Makes the text bold */
+    line-height: 1.2; /* Adjusts line spacing for better readability */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+      text-align: center; /* Centers text horizontally */
+}
