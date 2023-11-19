@@ -12,7 +12,6 @@ import CardComponent from "../pollen/pollen";
 import RestaurantList from "../../restaurantList";
 import RestaurantMap from "../../RestaurantMap";
 
-
 // without this the component renders on server and throws an error
 import dynamic from "next/dynamic";
 import { TravelMethod, useTravelStore } from "@/services/travel";
@@ -33,17 +32,13 @@ export default function CarbonDashboard() {
   } = useTravelStore((state) => state);
   const { directions, updateDirections } = useDirections((state) => state);
   const firstLeg = directions?.routes[0].legs[0];
-  const startAddress = firstLeg?.start_location;
-  const endAddresss = firstLeg?.end_location;
 
   return (
     <>
       <button onClick={() => updateTravelDetails()}></button>
-      {/**  */}
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3 2xl:gap-7.5">
-        <CardDataStats title="miles" total={`${distanceMiles ?? "---"}`}>
-      <button onClick={() => updateTravelDetails()}>TEST</button>
+      {/* Data Cards */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
+        {/* Miles Card */}
         <CardDataStats title="miles" total={`${distanceMiles ?? NULL_STRING}`}>
           {travelMethod === TravelMethod.CAR ? (
             <svg
@@ -129,6 +124,7 @@ export default function CarbonDashboard() {
           )}
         </CardDataStats>
         {/* !!! WORK ON CONVERTING METRIC TONS TO A FAMILAR UNIT */}
+        {/* Metric Tons Card */}
         <CardDataStats
           title="metric tons"
           total={`${carbonEmittedMt ?? NULL_STRING}`}
@@ -147,7 +143,11 @@ export default function CarbonDashboard() {
             />
           </svg>
         </CardDataStats>
-        <CardDataStats title="mins" total={`${timeEstimatedMinutes ?? NULL_STRING}`}>
+        {/* Minutes Card */}
+        <CardDataStats
+          title="mins"
+          total={`${timeEstimatedMinutes ?? NULL_STRING}`}
+        >
           <svg
             className="fill-primary dark:fill-white"
             width="22"
@@ -162,19 +162,36 @@ export default function CarbonDashboard() {
             />
           </svg>
         </CardDataStats>
-        </div>
-        <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
-            {directions ? <GoogleMapDisplay directions={directions}/> : <p>Enter in your directions!</p>}
-            <DirectionsInputForm onSubmit={(formData) => updateDirections(formData)} />
-            {/* <ChartOne />
-            <ChartThree />
-            <div className="col-span-12 xl:col-span-8">
-            <TableOne />
-            </div>
-            <ChatCard /> */}
-        
-        </div>
-        <RestaurantList></RestaurantList>
+      </div>
+
+      {/* Direction Web View */}
+      <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
+        { firstLeg?.end_address ? <RestaurantMap query={firstLeg.end_address} /> : <div>Loading</div>}
+        <DirectionsInputForm
+          onSubmit={(formData) => updateDirections(formData)}
+        />
+      </div>
+
+      {/* Direction Form */}
+      {firstLeg && (
+        <DirectionList
+          startAddress={firstLeg.start_address}
+          endAddress={firstLeg.end_address}
+          totalDistance={firstLeg.distance?.text ?? NULL_STRING}
+          totalDuration={firstLeg.duration?.text ?? NULL_STRING}
+          steps={
+            firstLeg.steps.map((step) => {
+              console.log(step);
+              return {
+                distance: step.distance?.text ?? NULL_STRING,
+                duration: step.duration?.text ?? NULL_STRING,
+                htmlInstructions: step["html_instructions"],
+              };
+            }) ?? []
+          }
+        />
+      )}
+      <RestaurantList></RestaurantList>
     </>
   );
 }

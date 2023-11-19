@@ -1,4 +1,5 @@
 import React from "react";
+import { Interweave } from "interweave";
 
 interface Step {
   distance: string;
@@ -23,13 +24,27 @@ export default function DirectionList({
 }: DirectionListProps) {
   return (
     <div>
-        <h2 className="pt-5 text-2xl font-bold">🗺️ Directions</h2>
-        <p>From: {startAddress}</p>
-        <p>To: {endAddress}</p>
+      <h2 className="pt-5 text-2xl font-bold">🗺️ Directions</h2>
+      <p className="text-lg">
+        <b>From:</b> {startAddress}
+      </p>
+      <p className="text-lg">
+        <b>To:</b> {endAddress}
+      </p>
+      <ul className="list-decimal">
+        {steps.map((step, i) => (
+          <DirectionStep key={i} step={step} />
+        ))}
+      </ul>
     </div>
   );
 }
 
-function DirectionStep() {
-  return <div>DirectionSteps</div>;
+interface DirectionStepProps {
+  step: Step;
+}
+
+function DirectionStep({ step }: DirectionStepProps) {
+    console.log(step);
+  return <ul><Interweave content={step.htmlInstructions} /></ul>;
 }
