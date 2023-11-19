@@ -33,11 +33,11 @@ async def hello_world():
     return {'message':'Hello World'}
 
 @app.get("/get_coordinates")
-async def coordinates(addres: str):
+async def coordinates(address: str):
     api_key= "AIzaSyAHbJM1jo4wyx5whpMNtfnpsHT30MjJ0JA"
     url = 'https://maps.googleapis.com/maps/api/geocode/json'
     parameters = {
-        'address': addres, 
+        'address': address, 
         'key': api_key,
     }
 
@@ -57,11 +57,11 @@ async def coordinates(addres: str):
     return {'lat': lat, 'lon': lon}
 
 @app.get("/restaurants")
-def hello_world(addres: str):
+def hello_world(address: str):
     api_key= "AIzaSyAHbJM1jo4wyx5whpMNtfnpsHT30MjJ0JA"
     url = 'https://maps.googleapis.com/maps/api/geocode/json'
     parameters = {
-        'address': addres, 
+        'address': address, 
         'key': api_key,
     }
 
@@ -104,8 +104,6 @@ def hello_world(addres: str):
 
     address= data['results'][0]['vicinity']
     name= data['results'][0]['name']
-
-    result= name + " " + address
 
     complete= address + name
     swap = complete.replace(" ", "+")
@@ -156,11 +154,11 @@ async def hello_world(origin: str, destination: str, mode: str, alternatives: bo
     return round(carbon_emissions)
 
 @app.get("/heatmap")
-async def heatmap(addres: str):
+async def heatmap(address: str):
     api_key= "AIzaSyAHbJM1jo4wyx5whpMNtfnpsHT30MjJ0JA"
     url = 'https://maps.googleapis.com/maps/api/geocode/json'
     parameters = {
-        'address': addres, 
+        'address': address, 
         'key': api_key,
     }
 
