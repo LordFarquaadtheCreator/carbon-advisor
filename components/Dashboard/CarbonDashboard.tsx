@@ -1,6 +1,6 @@
 "use client";
 // import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
-import './styles.css';
+import "./styles.css";
 import React, { use } from "react";
 import ChartOne from "../Charts/ChartOne";
 import ChartThree from "../Charts/ChartThree";
@@ -11,6 +11,7 @@ import CardDataStats from "../CardDataStats";
 import CardComponent from "../pollen/pollen";
 import RestaurantList from "../../restaurantList";
 import RestaurantMap from "../../RestaurantMap";
+import { Interweave } from "interweave";
 
 // without this the component renders on server and throws an error
 import dynamic from "next/dynamic";
@@ -30,13 +31,15 @@ export default function CarbonDashboard() {
     carbonEmittedMt,
     updateTravelDetails,
   } = useTravelStore((state) => state);
-  const { directions, updateDirections } = useDirections((state) => state);
+  const { directions, embedUrl, updateDirections } = useDirections(
+    (state) => state
+  );
   const firstLeg = directions?.routes[0].legs[0];
 
   return (
     <>
       {/* Data Cards */}
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3 2xl:gap-7.5">
         {/* Miles Card */}
         <CardDataStats title="miles" total={`${distanceMiles ?? NULL_STRING}`}>
           {travelMethod === TravelMethod.CAR ? (
@@ -165,38 +168,53 @@ export default function CarbonDashboard() {
 
       {/* Direction Web View */}
       <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5 ">
-        <div className="col-span-9 rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
-          {firstLeg?.end_address ? <RestaurantMap query={firstLeg.end_address} /> : <RestaurantMap query={'Boston University'} />}
+        <div className="col-span-9 rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark flex items-center justify-center">
+          {/* {firstLeg?.end_address ? <RestaurantMap query={firstLeg.end_address} /> : <RestaurantMap query={'Boston University'} />} */}
+          {embedUrl ? (
+            <iframe src={embedUrl} width="600" height="400" />
+          ) : (
+            <RestaurantMap query={"Boston University"} />
+          )}
         </div>
-      <div className="col-span-3 justify-start rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
-            <DirectionsInputForm onSubmit={(formData) => updateDirections(formData)} />
+        <div className="col-span-3 justify-start rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
+          <DirectionsInputForm
+            onSubmit={(formData) => updateDirections(formData)}
+          />
         </div>
       </div>
 
       {/* Direction Form */}
       {firstLeg && (
         <>
-        <div className="flex flex-row">
-        <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>  <DirectionList
-            startAddress={firstLeg.start_address}
-            endAddress={firstLeg.end_address}
-            totalDistance={firstLeg.distance?.text ?? NULL_STRING}
-            totalDuration={firstLeg.duration?.text ?? NULL_STRING}
-            steps={
-              firstLeg.steps.map((step) => {
-                return {
-                  distance: step.distance?.text ?? NULL_STRING,
-                  duration: step.duration?.text ?? NULL_STRING,
-                  htmlInstructions: step["html_instructions"],  // there was an error in API, so we use key-syntax
-                };
-              }) ?? []
-            }
-          />
-        </div>
+          <div className="flex flex-row">
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                width: "100%",
+              }}
+            >
+              {" "}
+              <DirectionList
+                startAddress={firstLeg.start_address}
+                endAddress={firstLeg.end_address}
+                totalDistance={firstLeg.distance?.text ?? NULL_STRING}
+                totalDuration={firstLeg.duration?.text ?? NULL_STRING}
+                steps={
+                  firstLeg.steps.map((step) => {
+                    return {
+                      distance: step.distance?.text ?? NULL_STRING,
+                      duration: step.duration?.text ?? NULL_STRING,
+                      htmlInstructions: step["html_instructions"], // there was an error in API, so we use key-syntax
+                    };
+                  }) ?? []
+                }
+              />
+            </div>
 
-          {/* <br/>
+            {/* <br/>
           <RestaurantList endAddress={firstLeg.end_address} /> */}
-        </div>
+          </div>
         </>
       )}
     </>
