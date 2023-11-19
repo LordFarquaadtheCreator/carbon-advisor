@@ -114,7 +114,7 @@ def hello_world(address: str):
     for i in range(len(data["results"])):
         results.append(data["results"][i]["name"] + " " + data["results"][i]["vicinity"])
 
-    base_link= f"https://maps.googleapis.com/maps/api/staticmap?center={lat},{lon}&zoom=13&size=600x800"
+    base_link= f"https://maps.googleapis.com/maps/api/staticmap?center={lat},{lon}&zoom=13&size=400x400"
     markers=""
     for i in range(len(data["results"])):
         temp_lat=data["results"][i]["geometry"]["location"]["lat"]
