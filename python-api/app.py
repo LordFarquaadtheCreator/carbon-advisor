@@ -199,6 +199,8 @@ async def pollution(address: str):
     headers = {'Content-Type': 'application/json'}
     response = requests.post(url, json=data, headers=headers)
 
+    data = response.json()
+
     co2= data["pollutants"][0]["concentration"]["value"]
     no2= data["pollutants"][1]["concentration"]["value"]
     o3= data["pollutants"][2]["concentration"]["value"]
