@@ -25,6 +25,8 @@
     "dotenv": "^16.3.1",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
+    "googl": "^0.2.0",
+    "google": "^2.1.0",
     "interweave": "^13.1.0",
     "jsvectormap": "^1.5.3",
     "next": "13.4.12",
